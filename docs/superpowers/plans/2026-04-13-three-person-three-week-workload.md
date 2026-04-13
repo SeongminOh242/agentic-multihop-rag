@@ -119,4 +119,4 @@ Edit the tables above to use your names, or add a row here:
 |-------|-----------|
 | P1    |           |
 | P2    | Avaneesh  |
-| P3    |           |
+| P3    | Seongmin Oh |
