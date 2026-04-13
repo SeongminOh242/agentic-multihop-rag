@@ -115,8 +115,8 @@ flowchart LR
 
 Edit the tables above to use your names, or add a row here:
 
-| Label | Name |
-|-------|------|
-| P1 | |          |
-| P2 | | Avaneesh |
-| P3 | |          |
+| Label | Name      |
+|-------|-----------|
+| P1    |           |
+| P2    | Avaneesh  |
+| P3    |           |
