@@ -169,7 +169,9 @@ def build_corpus(samples):
         for title, sentences in zip(titles, sentences_list):
             passage = title + ". " + " ".join(sentences)
             corpus.append(passage)
-    return list(set(corpus))  # deduplicate
+    # Use dict.fromkeys to deduplicate while preserving insertion order.
+    # list(set(...)) would randomize doc_ids, breaking NDCG/MRR ground-truth mapping.
+    return list(dict.fromkeys(corpus))
 ```
 
 - [ ] **Step 4: Run test to verify it passes**
@@ -534,13 +536,17 @@ class AgenticRAG:
     def answer(self, question: str) -> dict:
         accumulated_context = []
         all_retrieved_docs = []
-        hop = 0
+        # per_hop_docs tracks each hop's retrieved docs separately for per-sub-query
+        # MRR/NDCG evaluation (spec requires measuring intermediate search quality).
+        per_hop_docs = []
+        sub_queries = [question]
         current_query = question
 
         for hop in range(1, self.max_hops + 1):
             raw_docs = self.retriever.retrieve(current_query, top_k=self.top_k * 2)
             reranked_docs = self.reranker.rerank(current_query, raw_docs, top_k=self.top_k)
             all_retrieved_docs.extend(reranked_docs)
+            per_hop_docs.append({"query": current_query, "docs": reranked_docs})
 
             new_context = "\n".join(d["text"] for d in reranked_docs)
             accumulated_context.append(f"[Hop {hop} — Query: {current_query}]\n{new_context}")
@@ -563,9 +569,12 @@ class AgenticRAG:
                     "answer": decision.get("final_answer", ""),
                     "num_hops": hop,
                     "retrieved_docs": all_retrieved_docs,
-                    "sub_queries": [question] + [decision.get("sub_query", "")],
+                    "per_hop_docs": per_hop_docs,
+                    "sub_queries": sub_queries,
                 }
-            current_query = decision.get("sub_query", question)
+            next_query = decision.get("sub_query", question)
+            sub_queries.append(next_query)
+            current_query = next_query
 
         # Max hops reached — force final answer
         context_str = "\n\n".join(accumulated_context)
@@ -578,6 +587,8 @@ class AgenticRAG:
             "answer": final_answer,
             "num_hops": self.max_hops,
             "retrieved_docs": all_retrieved_docs,
+            "per_hop_docs": per_hop_docs,
+            "sub_queries": sub_queries,
         }
 ```
 
@@ -706,24 +717,46 @@ def ndcg_at_k(retrieved: list[dict], relevant_ids: set, k: int = 10) -> float:
 
 def evaluate_batch(results: list[dict], ground_truths: list[dict]) -> dict:
     """
-    results: list of {"answer": str, "retrieved_docs": [...], "num_hops": int}
+    results: list of {"answer": str, "retrieved_docs": [...], "num_hops": int,
+                       "per_hop_docs": [{"query": str, "docs": [...]}]}
     ground_truths: list of {"answer": str, "supporting_doc_ids": set}
+
+    Per-hop MRR/NDCG measure intermediate search quality as required by the spec.
+    Final MRR/NDCG measure overall retrieval quality across all hops combined.
     """
     em_scores, f1_scores, mrr_scores, ndcg_scores, hops = [], [], [], [], []
+    per_hop_mrr_scores, per_hop_ndcg_scores = [], []
+
     for result, gt in zip(results, ground_truths):
         em_scores.append(float(exact_match(result["answer"], gt["answer"])))
         f1_scores.append(f1_score_tokens(result["answer"], gt["answer"]))
         relevant = gt.get("supporting_doc_ids", set())
+
+        # Final (aggregated) retrieval metrics
         mrr_scores.append(mean_reciprocal_rank(result["retrieved_docs"], relevant))
         ndcg_scores.append(ndcg_at_k(result["retrieved_docs"], relevant, k=10))
         hops.append(result["num_hops"])
-    return {
+
+        # Per-hop retrieval metrics (spec: measure each dynamically generated sub-query)
+        hop_mrrs, hop_ndcgs = [], []
+        for hop_result in result.get("per_hop_docs", []):
+            hop_mrrs.append(mean_reciprocal_rank(hop_result["docs"], relevant))
+            hop_ndcgs.append(ndcg_at_k(hop_result["docs"], relevant, k=10))
+        if hop_mrrs:
+            per_hop_mrr_scores.append(sum(hop_mrrs) / len(hop_mrrs))
+            per_hop_ndcg_scores.append(sum(hop_ndcgs) / len(hop_ndcgs))
+
+    out = {
         "EM": sum(em_scores) / len(em_scores),
         "F1": sum(f1_scores) / len(f1_scores),
         "MRR": sum(mrr_scores) / len(mrr_scores),
         "NDCG@10": sum(ndcg_scores) / len(ndcg_scores),
         "avg_hops": sum(hops) / len(hops),
     }
+    if per_hop_mrr_scores:
+        out["per_hop_MRR"] = sum(per_hop_mrr_scores) / len(per_hop_mrr_scores)
+        out["per_hop_NDCG@10"] = sum(per_hop_ndcg_scores) / len(per_hop_ndcg_scores)
+    return out
 ```
 
 - [ ] **Step 4: Run test to verify it passes**
@@ -767,7 +800,8 @@ def build_ground_truths(samples, corpus):
     """Map supporting fact titles to doc_ids in corpus for retrieval evaluation."""
     title_to_id = {}
     for idx, doc in enumerate(corpus):
-        title = doc.split(".")[0]
+        # Split on ". " (with space) to handle titles like "U.S. Navy" correctly.
+        title = doc.split(". ", 1)[0]
         title_to_id[title] = idx
     ground_truths = []
     for s in samples:
@@ -925,13 +959,15 @@ The report should cover (in a document or PDF):
 
 Fill in the table:
 
-| Metric   | Baseline RAG | Agentic RAG |
-|----------|-------------|-------------|
-| EM       | (from results) | (from results) |
-| F1       | (from results) | (from results) |
-| MRR      | (from results) | (from results) |
-| NDCG@10  | (from results) | (from results) |
-| Avg Hops | 1.00         | (from results) |
+| Metric            | Baseline RAG   | Agentic RAG    |
+|-------------------|----------------|----------------|
+| EM                | (from results) | (from results) |
+| F1                | (from results) | (from results) |
+| MRR (final)       | (from results) | (from results) |
+| NDCG@10 (final)   | (from results) | (from results) |
+| per-hop MRR       | N/A            | (from results) |
+| per-hop NDCG@10   | N/A            | (from results) |
+| Avg Hops          | 1.00           | (from results) |
 
 - [ ] **Step 3: Final commit**
 
@@ -959,4 +995,4 @@ git commit -m "docs: final report and analysis complete"
 | Comparison vs static RAG baseline | Task 5 + 8 |
 | LangChain orchestration framework | *(Optional extension — see note below)* |
 
-> **Note on LangChain:** The plan implements the agent loop manually for transparency and control. LangChain can be added as an orchestration wrapper in Task 6 if preferred, using `langchain.agents.AgentExecutor` and `langchain.tools.Tool` to wrap the retriever. This adds complexity without changing the core logic.
+> **Note on LangChain:** The spec mentions "orchestrated via a framework, such as LangChain." This plan intentionally implements the agent loop manually (no LangChain dependency) for transparency, debuggability, and to keep the focus on the retrieval/ranking logic — LangChain would wrap the same logic without changing it. If the grader expects LangChain, Task 6 can be extended to wrap `AgenticRAG` as a `langchain.tools.Tool` inside a `langchain.agents.AgentExecutor`. **Decide before Week 2 whether to add this.** The word "such as" in the spec suggests it is not mandatory.
