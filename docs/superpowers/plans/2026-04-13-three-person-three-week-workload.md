@@ -117,6 +117,6 @@ Edit the tables above to use your names, or add a row here:
 
 | Label | Name      |
 |-------|-----------|
-| P1    |           |
+| P1    |   Sam        |
 | P2    | Avaneesh  |
 | P3    | Seongmin Oh |
