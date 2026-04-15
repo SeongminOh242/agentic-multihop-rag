@@ -41,13 +41,12 @@ Rotate merge/integration duty as you prefer; the table below assumes these lanes
 
 | Owner | Tasks | Notes |
 |-------|--------|--------|
-| **P1** | Task 6 (`src/agent.py`, `tests/test_agent.py`) | Uses retriever and reranker; keep the LLM JSON response schema stable. |
-| **P2** | Support agent integration | Empty results, `top_k` edge cases, retrieval bugs surfaced by the agent loop. |
-| **P3** | Task 7 (`src/evaluator.py`, `tests/test_evaluator.py`) | Can implement against result dict shapes from baseline/agent without waiting on live LLM calls. |
+| **P1** | Task 6 (`src/agent.py`, `tests/test_agent.py`) | Implements the core agentic loop; keep the LLM JSON response schema (`sub_query`, `sufficient`, `final_answer`) stable from the start. |
+| **P2** | Task 7 (`src/evaluator.py`, `tests/test_evaluator.py`) + agent integration support | Evaluator can be written against the result dict shapes without live LLM calls. Also cover edge cases surfaced by the agent: empty retrieval results, `top_k` boundary, retrieval bugs. |
 
-**Optional:** If Task 6 is heavy, **P2** can add harnesses or extra agent tests while **P1** implements the core loop.
+**If Task 6 runs long:** P2 pauses evaluator work and adds extra agent test harnesses (e.g., max-hops boundary, malformed JSON response) while P1 finishes the core loop. Resume evaluator once agent tests are green.
 
-**Sync point:** After the first successful `AgenticRAG.answer()` path, **P3** confirms evaluator fields match pipeline outputs (`answer`, `retrieved_docs`, `num_hops`, etc.).
+**Sync point:** After the first successful `AgenticRAG.answer()` path, **P2** confirms evaluator fields match pipeline outputs (`answer`, `retrieved_docs`, `num_hops`, `per_hop_docs`, etc.).
 
 ---
 
