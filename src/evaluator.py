@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import math
 import re
 import string
 from collections import Counter
@@ -51,6 +52,12 @@ def f1_score(prediction: str, ground_truth: str) -> float:
     return (2 * precision * recall) / (precision + recall)
 
 
+# Aliases to match the original 04-08 spec verbatim
+_normalize = normalize_answer
+exact_match = exact_match_score
+f1_score_tokens = f1_score
+
+
 class Evaluator:
     """Evaluates agent execution traces against HotpotQA ground truth examples."""
 
@@ -98,3 +105,73 @@ class Evaluator:
             "f1": f1,
             "retrieval_recall": retrieval_recall,
         }
+
+
+def mean_reciprocal_rank(retrieved: list[dict], relevant_ids: set) -> float:
+    for rank, doc in enumerate(retrieved, start=1):
+        if doc.get("doc_id") in relevant_ids:
+            return 1.0 / rank
+    return 0.0
+
+
+def ndcg_at_k(retrieved: list[dict], relevant_ids: set, k: int = 10) -> float:
+    def dcg(hits):
+        return sum(hit / math.log2(i + 2) for i, hit in enumerate(hits))
+
+    hits = [1.0 if doc.get("doc_id") in relevant_ids else 0.0 for doc in retrieved[:k]]
+    ideal = sorted(hits, reverse=True)
+    actual_dcg = dcg(hits)
+    ideal_dcg = dcg(ideal)
+    return actual_dcg / ideal_dcg if ideal_dcg > 0 else 0.0
+
+
+def evaluate_batch(results: list[dict], ground_truths: list[dict]) -> dict:
+    """
+    results: list of {"answer": str, "retrieved_docs": [...], "num_hops": int,
+                       "per_hop_docs": [{"query": str, "docs": [...]}]}
+    ground_truths: list of {"answer": str, "supporting_doc_ids": set}
+
+    Per-hop MRR/NDCG measure intermediate search quality as required by the spec.
+    Final MRR/NDCG measure overall retrieval quality across all hops combined.
+    """
+    em_scores, f1_scores, mrr_scores, ndcg_scores, hops = [], [], [], [], []
+    per_hop_mrr_scores, per_hop_ndcg_scores = [], []
+
+    for result, gt in zip(results, ground_truths):
+        ans = result.get("answer") or ""
+        expected_ans = gt.get("answer") or ""
+        em_scores.append(float(exact_match_score(ans, expected_ans)))
+        f1_scores.append(f1_score(ans, expected_ans))
+        
+        relevant = gt.get("supporting_doc_ids", set())
+
+        # Final (aggregated) retrieval metrics
+        ret_docs = result.get("retrieved_docs", [])
+        mrr_scores.append(mean_reciprocal_rank(ret_docs, relevant))
+        ndcg_scores.append(ndcg_at_k(ret_docs, relevant, k=10))
+        hops.append(result.get("num_hops", 1))
+
+        # Per-hop retrieval metrics
+        hop_mrrs, hop_ndcgs = [], []
+        for hop_result in result.get("per_hop_docs", []):
+            docs = hop_result.get("docs", [])
+            hop_mrrs.append(mean_reciprocal_rank(docs, relevant))
+            hop_ndcgs.append(ndcg_at_k(docs, relevant, k=10))
+        
+        if hop_mrrs:
+            per_hop_mrr_scores.append(sum(hop_mrrs) / len(hop_mrrs))
+            per_hop_ndcg_scores.append(sum(hop_ndcgs) / len(hop_ndcgs))
+
+    out = {
+        "EM": sum(em_scores) / len(em_scores) if em_scores else 0.0,
+        "F1": sum(f1_scores) / len(f1_scores) if f1_scores else 0.0,
+        "MRR": sum(mrr_scores) / len(mrr_scores) if mrr_scores else 0.0,
+        "NDCG@10": sum(ndcg_scores) / len(ndcg_scores) if ndcg_scores else 0.0,
+        "avg_hops": sum(hops) / len(hops) if hops else 0.0,
+    }
+    
+    if per_hop_mrr_scores:
+        out["per_hop_MRR"] = sum(per_hop_mrr_scores) / len(per_hop_mrr_scores)
+        out["per_hop_NDCG@10"] = sum(per_hop_ndcg_scores) / len(per_hop_ndcg_scores)
+        
+    return out

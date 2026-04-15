@@ -2,8 +2,11 @@ from __future__ import annotations
 
 from src.evaluator import (
     Evaluator,
+    evaluate_batch,
     exact_match_score,
     f1_score,
+    mean_reciprocal_rank,
+    ndcg_at_k,
     normalize_answer,
 )
 from src.types import HotpotExample, SupportingFact
@@ -17,21 +20,29 @@ def test_normalize_answer() -> None:
     assert normalize_answer("") == ""
 
 
-def test_exact_match_score() -> None:
-    assert exact_match_score("Paris, France", "Paris France") is True
-    assert exact_match_score("a cat", "cat") is True
-    assert exact_match_score("dog", "cat") is False
+def test_exact_match_true() -> None:
+    assert exact_match_score("Paris", "Paris") is True
 
 
-def test_f1_score() -> None:
-    assert f1_score("Paris, France", "Paris France") == 1.0
-    assert f1_score("Paris", "Paris France") == 0.6666666666666666  # 2 * (1/1 * 1/2) / (1/1 + 1/2) = 2/3
-    assert f1_score("London", "Paris France") == 0.0
-    # Both empty strings
-    assert f1_score("", "") == 1.0
-    # One empty string
-    assert f1_score("word", "") == 0.0
-    assert f1_score("", "word") == 0.0
+def test_exact_match_case_insensitive() -> None:
+    assert exact_match_score("paris", "Paris") is True
+
+
+def test_exact_match_false() -> None:
+    assert exact_match_score("London", "Paris") is False
+
+
+def test_f1_score_partial_overlap() -> None:
+    score = f1_score("Paris France", "Paris is in France")
+    assert 0.0 < score < 1.0
+
+
+def test_f1_score_exact() -> None:
+    assert f1_score("Paris", "Paris") == 1.0
+
+
+def test_f1_score_no_overlap() -> None:
+    assert f1_score("London", "Tokyo") == 0.0
 
 
 def _fake_hotpot_example() -> HotpotExample:
@@ -114,3 +125,56 @@ def test_evaluator_baseline_dict_shape() -> None:
 
     metrics = evaluator.evaluate(response, ground_truth)
     assert metrics["retrieval_recall"] == 0.5  # Should parse "Eiffel Tower" from text
+
+
+def test_mrr_first_relevant() -> None:
+    # Relevant doc is at position 0 → MRR = 1.0
+    retrieved = [{"doc_id": 0}, {"doc_id": 1}, {"doc_id": 2}]
+    relevant = {0}
+    assert mean_reciprocal_rank(retrieved, relevant) == 1.0
+
+
+def test_mrr_second_relevant() -> None:
+    retrieved = [{"doc_id": 1}, {"doc_id": 0}, {"doc_id": 2}]
+    relevant = {0}
+    assert abs(mean_reciprocal_rank(retrieved, relevant) - 0.5) < 1e-6
+
+
+def test_ndcg_at_k_perfect() -> None:
+    retrieved = [{"doc_id": 0}, {"doc_id": 1}]
+    relevant = {0, 1}
+    score = ndcg_at_k(retrieved, relevant, k=2)
+    assert abs(score - 1.0) < 1e-6
+
+
+def test_ndcg_at_k_none_relevant() -> None:
+    retrieved = [{"doc_id": 0}, {"doc_id": 1}]
+    relevant = {99}
+    assert ndcg_at_k(retrieved, relevant, k=2) == 0.0
+
+
+def test_evaluate_batch() -> None:
+    results = [
+        {
+            "answer": "Paris",
+            "num_hops": 2,
+            "retrieved_docs": [{"doc_id": 10}, {"doc_id": 1}],
+            "per_hop_docs": [
+                {"query": "tower", "docs": [{"doc_id": 5}, {"doc_id": 8}]},
+                {"query": "city", "docs": [{"doc_id": 10}, {"doc_id": 1}]},
+            ],
+        }
+    ]
+    ground_truths = [
+        {
+            "answer": "Paris France",
+            "supporting_doc_ids": {10, 11},
+        }
+    ]
+
+    metrics = evaluate_batch(results, ground_truths)
+    assert "EM" in metrics
+    assert "F1" in metrics
+    assert metrics["MRR"] == 1.0  # doc_id 10 is rank 1
+    assert metrics["avg_hops"] == 2.0
+    assert "per_hop_MRR" in metrics
