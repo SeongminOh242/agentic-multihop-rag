@@ -42,15 +42,16 @@ class StaticRAG:
         }
 
     def _call_llm(self, prompt: str) -> str:
-        if self.client is None:
-            raise RuntimeError("OpenAI client is not configured. Set OPENAI_API_KEY first.")
+        if self.client is not None:
+            response = self.client.chat.completions.create(
+                model=self.model_name,
+                messages=[{"role": "user", "content": prompt}],
+                temperature=0,
+            )
+            return response.choices[0].message.content.strip()
 
-        response = self.client.chat.completions.create(
-            model=self.model_name,
-            messages=[{"role": "user", "content": prompt}],
-            temperature=0,
-        )
-        return response.choices[0].message.content.strip()
+        from src.llm import get_llm
+        return get_llm().generate(prompt)
 
     @staticmethod
     def _build_client():

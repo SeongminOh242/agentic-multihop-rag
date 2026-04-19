@@ -63,20 +63,17 @@ def _baseline_answer_with_fallback(baseline: StaticRAG, question: str) -> dict[s
 
 
 def _agent_answer_with_fallback(agent: AgenticRAG, question: str) -> dict[str, Any]:
-    if agent.client is not None:
-        try:
-            return agent.answer(question)
-        except Exception:
-            pass
-
-    reranked_docs = _fallback_docs(agent, question)
-    return {
-        "answer": reranked_docs[0]["text"] if reranked_docs else "",
-        "num_hops": 1,
-        "retrieved_docs": reranked_docs,
-        "per_hop_docs": [{"query": question, "docs": reranked_docs}],
-        "sub_queries": [question],
-    }
+    try:
+        return agent.answer(question)
+    except Exception:
+        reranked_docs = _fallback_docs(agent, question)
+        return {
+            "answer": reranked_docs[0]["text"] if reranked_docs else "",
+            "num_hops": 1,
+            "retrieved_docs": reranked_docs,
+            "per_hop_docs": [{"query": question, "docs": reranked_docs}],
+            "sub_queries": [question],
+        }
 
 
 def run(num_samples: int = 50) -> dict[str, dict[str, float]]:
@@ -91,7 +88,7 @@ def run(num_samples: int = 50) -> dict[str, dict[str, float]]:
     baseline_metrics = evaluate_batch(baseline_results, ground_truths)
 
     print(f"Running Agentic RAG on {num_samples} samples...")
-    agent = AgenticRAG(corpus, top_k=5, max_hops=4)
+    agent = AgenticRAG(corpus, top_k=5, max_hops=4, min_hops=2)
     agent_results = [_agent_answer_with_fallback(agent, question) for question in questions]
     agent_metrics = evaluate_batch(agent_results, ground_truths)
 

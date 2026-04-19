@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 from typing import Any
 
 from src.retriever import BM25Retriever
@@ -27,22 +28,25 @@ OR
 
 
 class AgenticRAG:
-    def __init__(self, corpus: list[str], top_k: int = 5, max_hops: int = 4):
+    def __init__(self, corpus: list[str], top_k: int = 5, max_hops: int = 4, min_hops: int = 2):
         self.retriever = BM25Retriever(corpus)
         self.reranker = CrossEncoderReranker()
         self.top_k = top_k
         self.max_hops = max_hops
+        self.min_hops = min_hops
         self.client = self._build_client()
 
     def _call_llm(self, prompt: str) -> str:
-        if self.client is None:
-            raise RuntimeError("OpenAI client is not configured. Set OPENAI_API_KEY first.")
-        response = self.client.chat.completions.create(
-            model="gpt-4o-mini",
-            messages=[{"role": "user", "content": prompt}],
-            temperature=0,
-        )
-        return response.choices[0].message.content.strip()
+        if self.client is not None:
+            response = self.client.chat.completions.create(
+                model="gpt-4o-mini",
+                messages=[{"role": "user", "content": prompt}],
+                temperature=0,
+            )
+            return response.choices[0].message.content.strip()
+
+        from src.llm import get_llm
+        return get_llm().generate(prompt, max_new_tokens=256)
 
     def answer(self, question: str) -> dict[str, Any]:
         accumulated_context: list[str] = []
@@ -69,20 +73,34 @@ class AgenticRAG:
             raw_response = self._call_llm(prompt)
 
             try:
-                decision = json.loads(raw_response)
-            except json.JSONDecodeError:
-                decision = {"sufficient": False, "sub_query": question}
+                decision = self._parse_json(raw_response)
+            except (json.JSONDecodeError, ValueError):
+                if hop >= self.min_hops:
+                    decision = {"sufficient": True, "final_answer": ""}
+                else:
+                    decision = {"sufficient": False, "sub_query": question}
 
-            if decision.get("sufficient", False):
+            next_query = decision.get("sub_query") or question
+            sufficient = decision.get("sufficient", False) or (
+                hop >= self.min_hops and next_query.strip() == current_query.strip()
+            )
+
+            if sufficient and hop >= self.min_hops:
+                final_answer = decision.get("final_answer", "")
+                if not final_answer:
+                    context_str = "\n\n".join(accumulated_context)
+                    final_answer = self._call_llm(
+                        f"Answer concisely based on the context below.\n\n"
+                        f"Context:\n{context_str}\n\nQuestion: {question}\n\nAnswer:"
+                    )
                 return {
-                    "answer": decision.get("final_answer", ""),
+                    "answer": final_answer,
                     "num_hops": hop,
                     "retrieved_docs": all_retrieved_docs,
                     "per_hop_docs": per_hop_docs,
                     "sub_queries": sub_queries,
                 }
 
-            next_query = decision.get("sub_query") or question
             sub_queries.append(next_query)
             current_query = next_query
 
@@ -100,6 +118,15 @@ class AgenticRAG:
             "per_hop_docs": per_hop_docs,
             "sub_queries": sub_queries,
         }
+
+    @staticmethod
+    def _parse_json(text: str) -> dict:
+        """Extract JSON from LLM response, stripping markdown code fences if present."""
+        text = re.sub(r"```(?:json)?\s*", "", text).strip().rstrip("```").strip()
+        match = re.search(r"\{.*\}", text, re.DOTALL)
+        if match:
+            return json.loads(match.group())
+        return json.loads(text)
 
     @staticmethod
     def _build_client():

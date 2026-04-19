@@ -18,10 +18,7 @@ def _load_dataset(
             "datasets is required to load HotpotQA. Install requirements.txt first."
         ) from exc
 
-    try:
-        return load_dataset(dataset_name, subset, split=split, trust_remote_code=True)
-    except TypeError:
-        return load_dataset(dataset_name, subset, split=split)
+    return load_dataset(dataset_name, subset, split=split)
 
 
 def load_hotpotqa(
