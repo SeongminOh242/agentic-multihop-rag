@@ -10,31 +10,31 @@
 
 ## 1. Introduction
 
-Modern question-answering systems built on retrieval-augmented generation (RAG) perform well on factoid questions that can be answered from a single document. However, real-world questions are often *multi-hop* — they require locating and reasoning over two or more documents whose connections are not obvious at query time. The HotpotQA benchmark [Yang et al., 2018] was specifically designed to expose this limitation: every question requires combining evidence from at least two supporting documents, making single-hop retrieval structurally insufficient.
+Retrieval-augmented generation has become a go-to approach for grounding LLM answers in external knowledge. The basic idea is straightforward: retrieve a few relevant documents, hand them to the model as context, and generate an answer. This works well enough when the answer lives in a single passage, but breaks down quickly on questions that require connecting information across multiple documents.
 
-A static RAG pipeline issues *one* query, retrieves a fixed set of documents, and hands the concatenated context to the language model. When the relevant evidence is spread across documents that look unrelated at the surface level, a single BM25 query consistently fails to surface both pieces of evidence. This motivates *iterative agentic retrieval*, where an LLM orchestrates multiple targeted sub-queries, refining its search based on what it has found so far.
+HotpotQA [Yang et al., 2018] is a benchmark specifically built to test this kind of multi-hop reasoning. Every question in the dataset requires evidence from at least two supporting documents, often with a "bridging" structure: one document identifies an intermediate entity, and a second document answers the actual question about that entity. A single-hop retrieval system fails here not because the retriever is bad, but because at query time you do not yet know what the intermediate entity is — you only find out after reading the first document.
 
-This report presents and evaluates an Iterative Agentic RAG system that uses an LLM agent to dynamically generate sub-queries across up to four retrieval hops, comparing it against a static single-hop baseline on 50 HotpotQA validation examples. We measure both answer quality (Exact Match, F1) and retrieval quality (MRR, NDCG@10) to fully characterise the gains from multi-hop reasoning.
+To address this, we built an iterative agentic RAG system where an LLM acts as a controller that loops over retrieval steps, generating targeted sub-queries based on what it has gathered so far, and stopping when it decides it has enough information to answer. We ran this against a standard single-hop baseline on 50 HotpotQA validation questions, measuring both how well each system answers questions (Exact Match, F1) and how well it retrieves the right documents (MRR, NDCG@10).
 
 ---
 
 ## 2. Related Work
 
-**BM25** [Robertson & Zaragoza, 2009] is the standard lexical retrieval baseline used in open-domain QA. It scores documents by term frequency and inverse document frequency, and remains a competitive baseline despite the rise of dense retrievers.
+The retrieval component of our system is built on **BM25** [Robertson & Zaragoza, 2009], a term-frequency-based scoring function that remains a strong lexical retrieval baseline despite being several decades old. We chose it for its simplicity and speed at corpus scale.
 
-**Dense Passage Retrieval (DPR)** [Karpukhin et al., 2020] trains dual-encoder models to embed questions and passages into a shared vector space, enabling semantic similarity search via FAISS. DPR outperforms BM25 on single-hop retrieval but does not inherently support multi-hop reasoning.
+**Dense Passage Retrieval (DPR)** [Karpukhin et al., 2020] is the natural next step — it trains a bi-encoder to embed queries and passages into a shared vector space, enabling semantic matching that BM25 misses. DPR is stronger on single-hop tasks, though it shares the same fundamental limitation of retrieving in one shot.
 
-**Standard RAG** [Lewis et al., 2020] combines a retriever with a sequence-to-sequence language model. In the original formulation, retrieval is a *single, non-iterative* step, which limits performance on multi-hop tasks.
+The foundational RAG paper [Lewis et al., 2020] pairs a retriever with a generator but treats retrieval as a single, fixed step before generation begins. This is essentially what our baseline does.
 
-**FLARE** [Jiang et al., 2023] extends RAG with forward-looking active retrieval: during generation, the model detects when it is uncertain and triggers additional retrieval queries on-the-fly. This is conceptually similar to our agentic loop but differs in that FLARE activates retrieval passively during decoding, while our system uses an explicit *Chain-of-Thought sub-query decision* at each hop.
+**FLARE** [Jiang et al., 2023] takes a different angle: it lets the model trigger on-demand retrieval mid-generation whenever it becomes uncertain about the next token. Our approach is similar in spirit but more explicit — we have the agent issue a deliberate sub-query decision at each hop rather than retrieving reactively during decoding.
 
-Our approach is most closely related to iterative retrieval methods such as IRCoT [Trivedi et al., 2022], which interleaves chain-of-thought reasoning with retrieval steps, and ReAct [Yao et al., 2022], which frames tool-use (including retrieval) as a sequence of Thought-Action-Observation steps.
+Our system is most directly related to **IRCoT** [Trivedi et al., 2022], which alternates between chain-of-thought reasoning steps and retrieval, and **ReAct** [Yao et al., 2022], which frames tool-use as a structured Thought-Action-Observation loop. We implement a simplified version of this idea without full chain-of-thought traces, relying instead on the LLM to decide sufficiency from the accumulated context.
 
 ---
 
 ## 3. System Design
 
-The pipeline consists of four main components:
+The pipeline has four components that run in a loop:
 
 ```
 User Query
@@ -59,13 +59,13 @@ User Query
               Final Answer
 ```
 
-**BM25 Retriever:** At each hop, the current sub-query is tokenised and scored against the full corpus using BM25Okapi. The top `top_k × 2 = 10` documents are passed to the re-ranker.
+**BM25 Retriever:** Each hop starts by tokenizing the current sub-query and scoring it against the full corpus via BM25Okapi. We retrieve `top_k × 2 = 10` candidates to give the re-ranker a wider pool to work with.
 
-**Cross-Encoder Re-ranker:** A `ms-marco-MiniLM-L-6-v2` cross-encoder scores each (query, document) pair jointly, returning the top `top_k = 5` documents. This corrects the recall-precision trade-off from BM25.
+**Cross-Encoder Re-ranker:** A `ms-marco-MiniLM-L-6-v2` cross-encoder jointly scores each (query, document) pair, returning the top `top_k = 5` documents. This stage is slower than BM25 but corrects ranking errors from lexical mismatch.
 
-**LLM Agent:** Llama 3.1 8B Instruct receives the accumulated multi-hop context and decides: either mark the context as `"sufficient": true` and emit a `"final_answer"`, or emit `"sufficient": false` with a new `"sub_query"`. This is repeated for up to `max_hops = 4` iterations.
+**LLM Agent:** Llama 3.1 8B gets the accumulated context from all previous hops and decides what to do next. If it has enough information, it returns `"sufficient": true` with a `"final_answer"`. If not, it returns `"sufficient": false` with a new `"sub_query"` to retrieve on the next hop. This repeats for up to `max_hops = 4` iterations.
 
-**Baseline (StaticRAG):** Issues a single BM25 + cross-encoder retrieval step, then generates an answer from the top-5 documents in one LLM call.
+**Baseline (StaticRAG):** Runs a single BM25 + cross-encoder retrieval pass, then calls the LLM once to generate an answer. No loop, no sub-queries.
 
 ---
 
@@ -81,14 +81,14 @@ User Query
 | top_k | 5 (10 candidate docs pre-reranking) |
 | max_hops | 4 |
 
-**Metrics:**
-- **Exact Match (EM):** 1 if the normalised prediction equals the normalised gold answer, 0 otherwise.
-- **F1:** Token-level F1 between predicted and gold answer tokens (standard HotpotQA metric).
-- **MRR (Mean Reciprocal Rank):** Measures how highly the first relevant supporting document is ranked across the retrieved list.
-- **NDCG@10 (Normalised Discounted Cumulative Gain at 10):** Measures the overall ranking quality of all retrieved documents using logarithmic position discounting.
-- **avg_hops:** Average number of retrieval iterations per question.
+We evaluate on four metrics:
 
-Supporting document IDs are mapped from the HotpotQA context titles to corpus indices, enabling ground-truth-based retrieval evaluation.
+- **Exact Match (EM):** Binary — 1 if the normalized prediction matches the gold answer exactly, 0 otherwise.
+- **F1:** Token-level overlap between predicted and gold answer after normalization. This is the primary HotpotQA metric because answers are often short phrases that may be partially correct.
+- **MRR (Mean Reciprocal Rank):** How early in the ranked list the first relevant supporting document appears.
+- **NDCG@10:** Overall ranking quality of the retrieved list, penalizing relevant documents that appear lower by discounting them logarithmically.
+
+Supporting document IDs for retrieval evaluation are derived by mapping the HotpotQA gold supporting-fact titles to their positions in the constructed corpus.
 
 ---
 
@@ -110,39 +110,37 @@ Supporting document IDs are mapped from the HotpotQA context titles to corpus in
 
 ### 6.1 Answer Quality
 
-The most striking result is that the **baseline achieves 0% Exact Match** while the agentic system achieves **12% EM** (6 out of 50 questions answered exactly correctly). This is not surprising: HotpotQA bridge questions typically require locating a bridging entity in one document and using it to look up the final answer in another. A single-hop retrieval step cannot perform this join even if the top-5 documents contain both supporting passages, because the LLM has no mechanism to search for the second document using information from the first.
+The gap in Exact Match is stark — the baseline scores 0% while the agentic system answers 6 out of 50 questions exactly right. At first glance 12% EM might seem low, but it is actually expected for a small 8B model on HotpotQA. The baseline's 0% is almost inevitable: even if both relevant documents happen to appear in the top-5, the model is given no signal about how the two documents relate, so it rarely synthesizes a correct bridging answer.
 
-The **F1 improvement of 237%** (0.075 → 0.252) shows that even for questions the agentic system does not answer exactly, it produces much more semantically complete answers. The multi-hop context gives the LLM the vocabulary and factual grounding needed to closely paraphrase the correct answer.
+F1 tells a similar story with more nuance. The 237% relative improvement (0.075 → 0.252) shows that the agentic system is producing substantially more useful answers even on questions it doesn't get exactly right. The multi-hop context gives the model the intermediate entities and supporting facts it needs to at least get close.
 
 ### 6.2 Retrieval Quality
 
-Both MRR (+8%) and NDCG@10 (+12%) improve with the agentic approach. The **final NDCG@10 (0.435) exceeds the per-hop NDCG@10 (0.420)**, which confirms that the union of documents retrieved across all hops contains better coverage of the supporting facts than any single hop retrieval step. This validates the design choice to accumulate all retrieved documents across hops rather than resetting the context for each hop.
+MRR and NDCG@10 both improve with the agentic approach, though the gains are more modest than the answer quality improvements — 8% and 12% respectively. This makes sense: BM25 is a lexical matcher, so the first hop (which uses the original question) often already surfaces one of the two supporting documents. The retrieval challenge in HotpotQA is getting the *second* document, which is where the agent's sub-queries help.
 
-The **per-hop MRR (0.339) ≈ final MRR (0.339)** indicates that the primary supporting document tends to be retrieved early (often in the first hop, which uses the original question as the query). Later hops add the secondary supporting documents, which is exactly the multi-hop bridging behaviour the system was designed to produce.
+One interesting detail in the results: the final NDCG@10 (0.435) is slightly higher than the per-hop average (0.420). This happens because documents retrieved across different hops complement each other — hop 1 tends to get the primary supporting document, and later hops add the secondary one. Accumulating all retrieved documents across hops rather than resetting each time is what makes this possible.
 
 ### 6.3 Hop Behaviour
 
-With `avg_hops = 3.72` out of a maximum of 4, the agent almost always needs the full budget of retrieval steps. This reflects the difficulty of HotpotQA questions: the agent consistently finds that a single pass is insufficient and continues issuing sub-queries. Importantly, this is not the result of poor stopping criteria — the agent correctly identifies sufficiency and returns early when it has enough context (otherwise avg_hops would be exactly 4.0).
+The average hop count of 3.72 (out of a max of 4) tells you that HotpotQA questions genuinely require multiple retrievals. The agent is not padding hops unnecessarily — a few questions do terminate before the limit, which is why the average isn't exactly 4.0. This is a reassuring result: the stopping criterion is doing its job.
 
 ### 6.4 Limitations
 
-- **Small sample size:** 50 samples is enough to show directional trends but too few to draw strong statistical conclusions. The pilot run (5 samples) showed agentic F1 (0.042) *lower* than baseline (0.058), which reversed at 50 samples — a reminder that variance is high at small scales.
-- **8B model capacity:** Llama 3.1 8B is a relatively small model. A larger model (70B or GPT-4) would likely generate better sub-queries and final answers, potentially improving EM significantly.
-- **BM25 ceiling:** The retrieval pipeline is lexical-only. Dense retrieval (DPR or E5) would close the vocabulary mismatch gap, particularly for questions where the bridging entity is paraphrased differently in the document.
+A few things to keep in mind when interpreting these results:
+
+- **50 samples is not a lot.** In the pilot run on just 5 samples, the agentic system actually had a *lower* F1 than the baseline. The trend reversed at 50 samples, but the variance is real, and conclusions drawn from this experiment should be treated as directional rather than definitive.
+- **The model size matters.** Llama 3.1 8B is a capable but relatively small model. The quality of the sub-queries it generates directly affects retrieval — a larger model would almost certainly produce more targeted queries and stronger final answers.
+- **BM25 has a hard ceiling.** If the bridging entity in the question is phrased differently in the document, BM25 will miss it. Swapping in a dense retriever would likely help substantially, particularly for paraphrase-heavy bridge questions.
 
 ---
 
 ## 7. Conclusion
 
-We demonstrated that an iterative agentic retrieval system significantly outperforms a static single-hop RAG baseline on multi-hop question answering. Across all five reported metrics, the agentic system is strictly better: EM improves from 0% to 12%, F1 improves by 237%, and retrieval quality (MRR, NDCG@10) improves by 8–12%.
+This project set out to test whether iterative agentic retrieval meaningfully improves over a standard single-hop RAG pipeline on multi-hop QA. Based on the results, the answer is clearly yes. Every metric improved, with the biggest gains in answer quality — 12% EM vs 0%, and a tripling of F1 score.
 
-The core insight is that multi-hop questions cannot be decomposed into a single retrieval query at query time — the bridging entity needed to form the second sub-query only becomes known after the first retrieval step. An LLM agent with a Chain-of-Thought sub-query loop discovers these bridging entities naturally and directs the retriever to gather the remaining evidence.
+The underlying reason is straightforward: multi-hop questions have a structure that single-hop retrieval cannot follow. You need to find a bridging entity first, and only then can you retrieve the document that actually answers the question. An LLM with a retrieval loop does this naturally; a static pipeline cannot, no matter how good the retriever is.
 
-**Future directions:**
-- Replace BM25 with a dense retriever (DPR, E5) to reduce vocabulary mismatch.
-- Implement FLARE-style retrieval triggering during generation for finer-grained retrieval control.
-- Scale to the full HotpotQA validation set (7,405 samples) for statistically robust evaluation.
-- Experiment with larger LLMs (Llama 3.1 70B, GPT-4o) to improve sub-query generation quality.
+That said, 12% EM is not a strong absolute result, and the system has clear headroom for improvement. The most impactful next steps would probably be switching to a dense retriever to reduce vocabulary mismatch, and testing the same pipeline with a larger model to see how much of the remaining error is due to the LLM's reasoning limitations. Scaling to the full validation set (7,405 questions) would also make the conclusions much more reliable.
 
 ---
 
