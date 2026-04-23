@@ -1,0 +1,3855 @@
+{
+  "created_at": "2026-04-23T20:14:54.134325+00:00",
+  "rows": [
+    {
+      "id": "5a8b57f25542995d1e6f1371",
+      "question": "Were Scott Derrickson and Ed Wood of the same nationality?",
+      "type": "comparison",
+      "level": "hard",
+      "gold_answer": "yes",
+      "gold_supporting_titles": [
+        "Ed Wood",
+        "Scott Derrickson"
+      ],
+      "gold_multihop": true,
+      "baseline_answer": "No, Scott Derrickson and Ed Wood were not of the same nationality. Scott Derrickson is American, while Ed Wood was an American filmmaker known for making low-budget films.",
+      "agent_answer": "false",
+      "baseline_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_trace": {
+        "num_hops": 2,
+        "sub_queries": [
+          "Were Scott Derrickson and Ed Wood of the same nationality?",
+          "Were Scott Derrickson and Ed Wood of the same nationality?"
+        ],
+        "per_hop": [
+          {
+            "query": "Were Scott Derrickson and Ed Wood of the same nationality?",
+            "top_titles": [
+              "Tyler Bates",
+              "Woodson, Arkansas",
+              "Doctor Strange (2016 film)",
+              "Gone in 60 Seconds (2000 film)",
+              "Ed Wood (film)"
+            ]
+          },
+          {
+            "query": "Were Scott Derrickson and Ed Wood of the same nationality?",
+            "top_titles": [
+              "Tyler Bates",
+              "Woodson, Arkansas",
+              "Doctor Strange (2016 film)",
+              "Gone in 60 Seconds (2000 film)",
+              "Ed Wood (film)"
+            ]
+          }
+        ],
+        "hop_decisions": [
+          {
+            "hop": 1,
+            "query": "Were Scott Derrickson and Ed Wood of the same nationality?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"No, Scott Derrickson and Ed Wood were not of the same nationality. Scott Derrickson is American while Ed Wood Sr. is from the United States but there is no direct information about Ed Wood Jr.'s nationality in the provided context.\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "No, Scott Derrickson and Ed Wood were not of the same nationality. Scott Derrickson is American while Ed Wood Sr. is from the United States but there is no direct information about Ed Wood Jr.'s nationality in the provided context."
+            },
+            "sufficient": true,
+            "next_query": "Were Scott Derrickson and Ed Wood of the same nationality?"
+          },
+          {
+            "hop": 2,
+            "query": "Were Scott Derrickson and Ed Wood of the same nationality?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"false\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "false"
+            },
+            "sufficient": true,
+            "next_query": "Were Scott Derrickson and Ed Wood of the same nationality?"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5a8c7595554299585d9e36b6",
+      "question": "What government position was held by the woman who portrayed Corliss Archer in the film Kiss and Tell?",
+      "type": "bridge",
+      "level": "hard",
+      "gold_answer": "Chief of Protocol",
+      "gold_supporting_titles": [
+        "Kiss and Tell (1945 film)",
+        "Shirley Temple"
+      ],
+      "gold_multihop": true,
+      "baseline_answer": "The information provided does not mention any connection between the film \"Kiss and Tell\" and a government position held by the actress who played Corliss Archer. Therefore, based solely on the given context, there is no information about such a position held by the actress.",
+      "agent_answer": "Village accountant",
+      "baseline_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_trace": {
+        "num_hops": 2,
+        "sub_queries": [
+          "What government position was held by the woman who portrayed Corliss Archer in the film Kiss and Tell?",
+          "What government position was held by the woman who portrayed Corliss Archer in the film Kiss and Tell?"
+        ],
+        "per_hop": [
+          {
+            "query": "What government position was held by the woman who portrayed Corliss Archer in the film Kiss and Tell?",
+            "top_titles": [
+              "Charles Craft",
+              "Village accountant",
+              "A Kiss for Corliss",
+              "2014 Bahrain Grand Prix",
+              "City of Angels (film)"
+            ]
+          },
+          {
+            "query": "What government position was held by the woman who portrayed Corliss Archer in the film Kiss and Tell?",
+            "top_titles": [
+              "Charles Craft",
+              "Village accountant",
+              "A Kiss for Corliss",
+              "2014 Bahrain Grand Prix",
+              "City of Angels (film)"
+            ]
+          }
+        ],
+        "hop_decisions": [
+          {
+            "hop": 1,
+            "query": "What government position was held by the woman who portrayed Corliss Archer in the film Kiss and Tell?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Village accountant\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Village accountant"
+            },
+            "sufficient": true,
+            "next_query": "What government position was held by the woman who portrayed Corliss Archer in the film Kiss and Tell?"
+          },
+          {
+            "hop": 2,
+            "query": "What government position was held by the woman who portrayed Corliss Archer in the film Kiss and Tell?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Village accountant\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Village accountant"
+            },
+            "sufficient": true,
+            "next_query": "What government position was held by the woman who portrayed Corliss Archer in the film Kiss and Tell?"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5a85ea095542994775f606a8",
+      "question": "What science fantasy young adult series, told in first person, has a set of companion books narrating the stories of enslaved worlds and alien species?",
+      "type": "bridge",
+      "level": "hard",
+      "gold_answer": "Animorphs",
+      "gold_supporting_titles": [
+        "Animorphs",
+        "The Hork-Bajir Chronicles"
+      ],
+      "gold_multihop": true,
+      "baseline_answer": "Based on the provided context, the science fantasy young adult series that fits this description is the \"Animorphs\" series. However, there is no direct mention of a set of companion books that narrate the stories of enslaved worlds and alien species. The closest match is the \"Hork-Bajir Chronicles,\" which is a companion book to the Animorphs series. It tells the story of how the Yeerk invasion enslaved the Hork-Bajir and how Andalites like Aldrea and Dak Hamee tried to save their world. While it is not explicitly stated to be in first-person narrative, it does align with the description given.",
+      "agent_answer": "The Animorphs series",
+      "baseline_metrics": {
+        "em": 0.0,
+        "f1": 0.022727272727272724
+      },
+      "agent_metrics": {
+        "em": 0.0,
+        "f1": 0.6666666666666666
+      },
+      "agent_trace": {
+        "num_hops": 2,
+        "sub_queries": [
+          "What science fantasy young adult series, told in first person, has a set of companion books narrating the stories of enslaved worlds and alien species?",
+          "What science fantasy young adult series, told in first person, has a set of companion books narrating the stories of enslaved worlds and alien species?"
+        ],
+        "per_hop": [
+          {
+            "query": "What science fantasy young adult series, told in first person, has a set of companion books narrating the stories of enslaved worlds and alien species?",
+            "top_titles": [
+              "Andre Norton Award",
+              "List of Square Enix companion books",
+              "The Hork-Bajir Chronicles",
+              "Science Fantasy (magazine)",
+              "Left Behind: The Kids"
+            ]
+          },
+          {
+            "query": "What science fantasy young adult series, told in first person, has a set of companion books narrating the stories of enslaved worlds and alien species?",
+            "top_titles": [
+              "Andre Norton Award",
+              "List of Square Enix companion books",
+              "The Hork-Bajir Chronicles",
+              "Science Fantasy (magazine)",
+              "Left Behind: The Kids"
+            ]
+          }
+        ],
+        "hop_decisions": [
+          {
+            "hop": 1,
+            "query": "What science fantasy young adult series, told in first person, has a set of companion books narrating the stories of enslaved worlds and alien species?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"The Animorphs series\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "The Animorphs series"
+            },
+            "sufficient": true,
+            "next_query": "What science fantasy young adult series, told in first person, has a set of companion books narrating the stories of enslaved worlds and alien species?"
+          },
+          {
+            "hop": 2,
+            "query": "What science fantasy young adult series, told in first person, has a set of companion books narrating the stories of enslaved worlds and alien species?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"The Animorphs series\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "The Animorphs series"
+            },
+            "sufficient": true,
+            "next_query": "What science fantasy young adult series, told in first person, has a set of companion books narrating the stories of enslaved worlds and alien species?"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5adbf0a255429947ff17385a",
+      "question": "Are the Laleli Mosque and Esma Sultan Mansion located in the same neighborhood?",
+      "type": "comparison",
+      "level": "hard",
+      "gold_answer": "no",
+      "gold_supporting_titles": [
+        "Esma Sultan Mansion",
+        "Laleli Mosque"
+      ],
+      "gold_multihop": true,
+      "baseline_answer": "No, the Laleli Mosque and Esma Sultan Mansion are not located in the same neighborhood. The Laleli Mosque is not mentioned in the provided context, but Esma Sultan Mansion is located in the Ortak\u00f6y neighborhood of Istanbul, Turkey.",
+      "agent_answer": "The Laleli Mosque and Esma Sultan Mansion are not mentioned to be located in the same neighborhood based on the provided information.",
+      "baseline_metrics": {
+        "em": 0.0,
+        "f1": 0.05882352941176471
+      },
+      "agent_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_trace": {
+        "num_hops": 2,
+        "sub_queries": [
+          "Are the Laleli Mosque and Esma Sultan Mansion located in the same neighborhood?",
+          "Are the Laleli Mosque and Esma Sultan Mansion located in the same neighborhood?"
+        ],
+        "per_hop": [
+          {
+            "query": "Are the Laleli Mosque and Esma Sultan Mansion located in the same neighborhood?",
+            "top_titles": [
+              "University of Missouri\u2013Kansas City",
+              "Djama\u00e2 el Kebir",
+              "Sultan Ahmed Mosque",
+              "Esma Sultan Mansion",
+              "Esma Sultan (daughter of Abdul Hamid I)"
+            ]
+          },
+          {
+            "query": "Are the Laleli Mosque and Esma Sultan Mansion located in the same neighborhood?",
+            "top_titles": [
+              "University of Missouri\u2013Kansas City",
+              "Djama\u00e2 el Kebir",
+              "Sultan Ahmed Mosque",
+              "Esma Sultan Mansion",
+              "Esma Sultan (daughter of Abdul Hamid I)"
+            ]
+          }
+        ],
+        "hop_decisions": [
+          {
+            "hop": 1,
+            "query": "Are the Laleli Mosque and Esma Sultan Mansion located in the same neighborhood?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"No, the Laleli Mosque and Esma Sultan Mansion are not located in the same neighborhood.\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "No, the Laleli Mosque and Esma Sultan Mansion are not located in the same neighborhood."
+            },
+            "sufficient": true,
+            "next_query": "Are the Laleli Mosque and Esma Sultan Mansion located in the same neighborhood?"
+          },
+          {
+            "hop": 2,
+            "query": "Are the Laleli Mosque and Esma Sultan Mansion located in the same neighborhood?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"The Laleli Mosque and Esma Sultan Mansion are not mentioned to be located in the same neighborhood based on the provided information.\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "The Laleli Mosque and Esma Sultan Mansion are not mentioned to be located in the same neighborhood based on the provided information."
+            },
+            "sufficient": true,
+            "next_query": "Are the Laleli Mosque and Esma Sultan Mansion located in the same neighborhood?"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5a8e3ea95542995a26add48d",
+      "question": "The director of the romantic comedy \"Big Stone Gap\" is based in what New York city?",
+      "type": "bridge",
+      "level": "hard",
+      "gold_answer": "Greenwich Village, New York City",
+      "gold_supporting_titles": [
+        "Adriana Trigiani",
+        "Big Stone Gap (film)"
+      ],
+      "gold_multihop": true,
+      "baseline_answer": "Based on the information provided, the director of the film \"Big Stone Gap\" is Adriana Trigiani. However, the question asks about the location of the New York City where the film premiered. Since the film had its world premiere at the Virginia Film Festival on November 6, 2014, and there is no specific New York City location mentioned for the premiere, we cannot definitively state that it took place in any New York City. \n\nTo directly answer the question as posed: The information does not specify a New York City location for the premiere, so we cannot determine this based solely on the given context.",
+      "agent_answer": "New York City",
+      "baseline_metrics": {
+        "em": 0.0,
+        "f1": 0.06315789473684211
+      },
+      "agent_metrics": {
+        "em": 0.0,
+        "f1": 0.7499999999999999
+      },
+      "agent_trace": {
+        "num_hops": 2,
+        "sub_queries": [
+          "The director of the romantic comedy \"Big Stone Gap\" is based in what New York city?",
+          "The director of the romantic comedy \"Big Stone Gap\" is based in what New York city?"
+        ],
+        "per_hop": [
+          {
+            "query": "The director of the romantic comedy \"Big Stone Gap\" is based in what New York city?",
+            "top_titles": [
+              "Kansas City jazz",
+              "Big Stone Gap (film)",
+              "Just Another Romantic Wrestling Comedy",
+              "I Love NY (2015 film)",
+              "Great Eastern Conventions"
+            ]
+          },
+          {
+            "query": "The director of the romantic comedy \"Big Stone Gap\" is based in what New York city?",
+            "top_titles": [
+              "Kansas City jazz",
+              "Big Stone Gap (film)",
+              "Just Another Romantic Wrestling Comedy",
+              "I Love NY (2015 film)",
+              "Great Eastern Conventions"
+            ]
+          }
+        ],
+        "hop_decisions": [
+          {
+            "hop": 1,
+            "query": "The director of the romantic comedy \"Big Stone Gap\" is based in what New York city?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"New York City\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "New York City"
+            },
+            "sufficient": true,
+            "next_query": "The director of the romantic comedy \"Big Stone Gap\" is based in what New York city?"
+          },
+          {
+            "hop": 2,
+            "query": "The director of the romantic comedy \"Big Stone Gap\" is based in what New York city?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"New York City\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "New York City"
+            },
+            "sufficient": true,
+            "next_query": "The director of the romantic comedy \"Big Stone Gap\" is based in what New York city?"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5abd94525542992ac4f382d2",
+      "question": "2014 S/S is the debut album of a South Korean boy group that was formed by who?",
+      "type": "bridge",
+      "level": "hard",
+      "gold_answer": "YG Entertainment",
+      "gold_supporting_titles": [
+        "2014 S/S",
+        "Winner (band)"
+      ],
+      "gold_multihop": true,
+      "baseline_answer": "2014 S/S is the debut album of the South Korean boy group WINNER, and it was released by the group's record label, YG Entertainment.",
+      "agent_answer": "YG Entertainment",
+      "baseline_metrics": {
+        "em": 0.0,
+        "f1": 0.17391304347826084
+      },
+      "agent_metrics": {
+        "em": 1.0,
+        "f1": 1.0
+      },
+      "agent_trace": {
+        "num_hops": 2,
+        "sub_queries": [
+          "2014 S/S is the debut album of a South Korean boy group that was formed by who?",
+          "2014 S/S is the debut album of a South Korean boy group that was formed by who?"
+        ],
+        "per_hop": [
+          {
+            "query": "2014 S/S is the debut album of a South Korean boy group that was formed by who?",
+            "top_titles": [
+              "List of awards and nominations received by Shinee",
+              "2014 S/S",
+              "List of songs written by Ravi",
+              "BTS discography",
+              "Madtown"
+            ]
+          },
+          {
+            "query": "2014 S/S is the debut album of a South Korean boy group that was formed by who?",
+            "top_titles": [
+              "List of awards and nominations received by Shinee",
+              "2014 S/S",
+              "List of songs written by Ravi",
+              "BTS discography",
+              "Madtown"
+            ]
+          }
+        ],
+        "hop_decisions": [
+          {
+            "hop": 1,
+            "query": "2014 S/S is the debut album of a South Korean boy group that was formed by who?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"MADTOWN\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "MADTOWN"
+            },
+            "sufficient": true,
+            "next_query": "2014 S/S is the debut album of a South Korean boy group that was formed by who?"
+          },
+          {
+            "hop": 2,
+            "query": "2014 S/S is the debut album of a South Korean boy group that was formed by who?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"YG Entertainment\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "YG Entertainment"
+            },
+            "sufficient": true,
+            "next_query": "2014 S/S is the debut album of a South Korean boy group that was formed by who?"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5a85b2d95542997b5ce40028",
+      "question": "Who was known by his stage name Aladin and helped organizations improve their performance as a consultant?",
+      "type": "bridge",
+      "level": "hard",
+      "gold_answer": "Eenasul Fateh",
+      "gold_supporting_titles": [
+        "Eenasul Fateh",
+        "Management consulting"
+      ],
+      "gold_multihop": true,
+      "baseline_answer": "Based on the provided context, there is no individual known by the stage name Aladin or who is described as helping organizations improve their performance as a consultant. The biographies of Ephraim Sklyansky, Lil Ru, Amaruk Kayshapanta, Method Man, and Mick Batyske do not include such information. Therefore, no answer can be definitively provided from the given context.",
+      "agent_answer": "Mick (DJ)",
+      "baseline_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_trace": {
+        "num_hops": 2,
+        "sub_queries": [
+          "Who was known by his stage name Aladin and helped organizations improve their performance as a consultant?",
+          "Who was known by his stage name Aladin and helped organizations improve their performance as a consultant?"
+        ],
+        "per_hop": [
+          {
+            "query": "Who was known by his stage name Aladin and helped organizations improve their performance as a consultant?",
+            "top_titles": [
+              "Ephraim Sklyansky",
+              "Lil Ru",
+              "Amaruk Kayshapanta",
+              "Method Man",
+              "Mick (DJ)"
+            ]
+          },
+          {
+            "query": "Who was known by his stage name Aladin and helped organizations improve their performance as a consultant?",
+            "top_titles": [
+              "Ephraim Sklyansky",
+              "Lil Ru",
+              "Amaruk Kayshapanta",
+              "Method Man",
+              "Mick (DJ)"
+            ]
+          }
+        ],
+        "hop_decisions": [
+          {
+            "hop": 1,
+            "query": "Who was known by his stage name Aladin and helped organizations improve their performance as a consultant?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Mick (DJ)\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Mick (DJ)"
+            },
+            "sufficient": true,
+            "next_query": "Who was known by his stage name Aladin and helped organizations improve their performance as a consultant?"
+          },
+          {
+            "hop": 2,
+            "query": "Who was known by his stage name Aladin and helped organizations improve their performance as a consultant?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Mick (DJ)\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Mick (DJ)"
+            },
+            "sufficient": true,
+            "next_query": "Who was known by his stage name Aladin and helped organizations improve their performance as a consultant?"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5a87ab905542996e4f3088c1",
+      "question": "The arena where the Lewiston Maineiacs played their home games can seat how many people?",
+      "type": "bridge",
+      "level": "hard",
+      "gold_answer": "3,677 seated",
+      "gold_supporting_titles": [
+        "Androscoggin Bank Colis\u00e9e",
+        "Lewiston Maineiacs"
+      ],
+      "gold_multihop": true,
+      "baseline_answer": "The context provided does not mention the seating capacity of the arena where the Lewiston Maineiacs played their home games. Therefore, I cannot answer the question based on the given information.",
+      "agent_answer": "The Robins Center can seat 7,201 people.",
+      "baseline_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_trace": {
+        "num_hops": 2,
+        "sub_queries": [
+          "The arena where the Lewiston Maineiacs played their home games can seat how many people?",
+          "The arena where the Lewiston Maineiacs played their home games can seat how many people?"
+        ],
+        "per_hop": [
+          {
+            "query": "The arena where the Lewiston Maineiacs played their home games can seat how many people?",
+            "top_titles": [
+              "Robins Center",
+              "Case Gym",
+              "2007 Memorial Cup",
+              "2011\u201312 QMJHL season",
+              "Billings Bulls"
+            ]
+          },
+          {
+            "query": "The arena where the Lewiston Maineiacs played their home games can seat how many people?",
+            "top_titles": [
+              "Robins Center",
+              "Case Gym",
+              "2007 Memorial Cup",
+              "2011\u201312 QMJHL season",
+              "Billings Bulls"
+            ]
+          }
+        ],
+        "hop_decisions": [
+          {
+            "hop": 1,
+            "query": "The arena where the Lewiston Maineiacs played their home games can seat how many people?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"The Lewiston Maineiacs played their home games in the Memorial Auditorium. However, the document does not specify the seating capacity of this arena.\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "The Lewiston Maineiacs played their home games in the Memorial Auditorium. However, the document does not specify the seating capacity of this arena."
+            },
+            "sufficient": true,
+            "next_query": "The arena where the Lewiston Maineiacs played their home games can seat how many people?"
+          },
+          {
+            "hop": 2,
+            "query": "The arena where the Lewiston Maineiacs played their home games can seat how many people?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"The Robins Center can seat 7,201 people.\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "The Robins Center can seat 7,201 people."
+            },
+            "sufficient": true,
+            "next_query": "The arena where the Lewiston Maineiacs played their home games can seat how many people?"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5a7bbb64554299042af8f7cc",
+      "question": "Who is older, Annie Morton or Terry Richardson?",
+      "type": "bridge",
+      "level": "hard",
+      "gold_answer": "Terry Richardson",
+      "gold_supporting_titles": [
+        "Annie Morton",
+        "Terry Richardson"
+      ],
+      "gold_multihop": true,
+      "baseline_answer": "Based on the information provided, Terry Richardson was born on August 14, 1965, while Annie Morton was born on October 8, 1970. Therefore, Terry Richardson is older than Annie Morton.",
+      "agent_answer": "Annie Morton",
+      "baseline_metrics": {
+        "em": 0.0,
+        "f1": 0.12903225806451613
+      },
+      "agent_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_trace": {
+        "num_hops": 2,
+        "sub_queries": [
+          "Who is older, Annie Morton or Terry Richardson?",
+          "Who is older, Annie Morton or Terry Richardson?"
+        ],
+        "per_hop": [
+          {
+            "query": "Who is older, Annie Morton or Terry Richardson?",
+            "top_titles": [
+              "Lady Gaga x Terry Richardson",
+              "Annie Morton",
+              "Gumbo (PJ Morton album)",
+              "Terry Richardson",
+              "Shadowshaper"
+            ]
+          },
+          {
+            "query": "Who is older, Annie Morton or Terry Richardson?",
+            "top_titles": [
+              "Lady Gaga x Terry Richardson",
+              "Annie Morton",
+              "Gumbo (PJ Morton album)",
+              "Terry Richardson",
+              "Shadowshaper"
+            ]
+          }
+        ],
+        "hop_decisions": [
+          {
+            "hop": 1,
+            "query": "Who is older, Annie Morton or Terry Richardson?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Annie Morton\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Annie Morton"
+            },
+            "sufficient": true,
+            "next_query": "Who is older, Annie Morton or Terry Richardson?"
+          },
+          {
+            "hop": 2,
+            "query": "Who is older, Annie Morton or Terry Richardson?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Annie Morton\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Annie Morton"
+            },
+            "sufficient": true,
+            "next_query": "Who is older, Annie Morton or Terry Richardson?"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5a8db19d5542994ba4e3dd00",
+      "question": "Are Local H and For Against both from the United States?",
+      "type": "comparison",
+      "level": "hard",
+      "gold_answer": "yes",
+      "gold_supporting_titles": [
+        "For Against",
+        "Local H"
+      ],
+      "gold_multihop": true,
+      "baseline_answer": "No, not all Local H and For are from the United States. Local H refers to Measure H, the GMO ban in Mendocino County, California, while \"For\" could refer to various pro-GMO or anti-GMO groups depending on the context. These examples are specifically from the United States. However, the Wilford H. Fawcett House and the William H. Cook Water Tank House are located outside the United States (in Minnesota and Idaho respectively), so their localities are not from the United States.",
+      "agent_answer": "Measure H and For Against are both from the United States.",
+      "baseline_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_trace": {
+        "num_hops": 2,
+        "sub_queries": [
+          "Are Local H and For Against both from the United States?",
+          "Are Local H and For Against both from the United States?"
+        ],
+        "per_hop": [
+          {
+            "query": "Are Local H and For Against both from the United States?",
+            "top_titles": [
+              "Mendocino County GMO Ban",
+              "Wilford H",
+              "Amherst, Massachusetts",
+              "United States Senate election in Illinois, 1978",
+              "William H"
+            ]
+          },
+          {
+            "query": "Are Local H and For Against both from the United States?",
+            "top_titles": [
+              "Mendocino County GMO Ban",
+              "Wilford H",
+              "Amherst, Massachusetts",
+              "United States Senate election in Illinois, 1978",
+              "William H"
+            ]
+          }
+        ],
+        "hop_decisions": [
+          {
+            "hop": 1,
+            "query": "Are Local H and For Against both from the United States?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Local H and For Against are both from the United States.\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Local H and For Against are both from the United States."
+            },
+            "sufficient": true,
+            "next_query": "Are Local H and For Against both from the United States?"
+          },
+          {
+            "hop": 2,
+            "query": "Are Local H and For Against both from the United States?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Measure H and For Against are both from the United States.\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Measure H and For Against are both from the United States."
+            },
+            "sufficient": true,
+            "next_query": "Are Local H and For Against both from the United States?"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5a7166395542994082a3e814",
+      "question": "What is the name of the fight song of the university whose main campus is in Lawrence, Kansas and whose branch campuses are in the Kansas City metropolitan area?",
+      "type": "bridge",
+      "level": "hard",
+      "gold_answer": "Kansas Song",
+      "gold_supporting_titles": [
+        "Kansas Song",
+        "University of Kansas"
+      ],
+      "gold_multihop": true,
+      "baseline_answer": "The information provided does not contain the name of the fight song of the University of Kansas. The relevant information given is about the location of the University of Kansas's main campus and branch campuses, but not details about its athletic teams or fight songs.",
+      "agent_answer": "Fight Sun Belt",
+      "baseline_metrics": {
+        "em": 0.0,
+        "f1": 0.1
+      },
+      "agent_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_trace": {
+        "num_hops": 2,
+        "sub_queries": [
+          "What is the name of the fight song of the university whose main campus is in Lawrence, Kansas and whose branch campuses are in the Kansas City metropolitan area?",
+          "What is the name of the fight song of the university whose main campus is in Lawrence, Kansas and whose branch campuses are in the Kansas City metropolitan area?"
+        ],
+        "per_hop": [
+          {
+            "query": "What is the name of the fight song of the university whose main campus is in Lawrence, Kansas and whose branch campuses are in the Kansas City metropolitan area?",
+            "top_titles": [
+              "University of Missouri\u2013Kansas City",
+              "Kansas City Scout",
+              "University of Kansas",
+              "History of the Kansas City metropolitan area",
+              "Downtown Kansas City"
+            ]
+          },
+          {
+            "query": "What is the name of the fight song of the university whose main campus is in Lawrence, Kansas and whose branch campuses are in the Kansas City metropolitan area?",
+            "top_titles": [
+              "University of Missouri\u2013Kansas City",
+              "Kansas City Scout",
+              "University of Kansas",
+              "History of the Kansas City metropolitan area",
+              "Downtown Kansas City"
+            ]
+          }
+        ],
+        "hop_decisions": [
+          {
+            "hop": 1,
+            "query": "What is the name of the fight song of the university whose main campus is in Lawrence, Kansas and whose branch campuses are in the Kansas City metropolitan area?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Fight Song of Old Main\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Fight Song of Old Main"
+            },
+            "sufficient": true,
+            "next_query": "What is the name of the fight song of the university whose main campus is in Lawrence, Kansas and whose branch campuses are in the Kansas City metropolitan area?"
+          },
+          {
+            "hop": 2,
+            "query": "What is the name of the fight song of the university whose main campus is in Lawrence, Kansas and whose branch campuses are in the Kansas City metropolitan area?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Fight Sun Belt\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Fight Sun Belt"
+            },
+            "sufficient": true,
+            "next_query": "What is the name of the fight song of the university whose main campus is in Lawrence, Kansas and whose branch campuses are in the Kansas City metropolitan area?"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5a877e5d5542993e715abf7d",
+      "question": "What screenwriter with credits for \"Evolution\" co-wrote a film starring Nicolas Cage and T\u00e9a Leoni?",
+      "type": "bridge",
+      "level": "hard",
+      "gold_answer": "David Weissman",
+      "gold_supporting_titles": [
+        "David Weissman",
+        "The Family Man"
+      ],
+      "gold_multihop": true,
+      "baseline_answer": "Based on the given context, there is no direct mention of a screenwriter named David Diamond or David Weissman who co-wrote a film starring Nicolas Cage and T\u00e9a Leoni. However, the context does mention that \"The Family Man\" was written by David Diamond and David Weissman, and it stars Nicolas Cage and T\u00e9a Leoni. Therefore, the answer to the question would be:\n\nDavid Diamond and David Weissman",
+      "agent_answer": "David Diamond and David Weissman",
+      "baseline_metrics": {
+        "em": 0.0,
+        "f1": 0.06451612903225806
+      },
+      "agent_metrics": {
+        "em": 0.0,
+        "f1": 0.5714285714285715
+      },
+      "agent_trace": {
+        "num_hops": 2,
+        "sub_queries": [
+          "What screenwriter with credits for \"Evolution\" co-wrote a film starring Nicolas Cage and T\u00e9a Leoni?",
+          "What screenwriter with credits for \"Evolution\" co-wrote a film starring Nicolas Cage and T\u00e9a Leoni?"
+        ],
+        "per_hop": [
+          {
+            "query": "What screenwriter with credits for \"Evolution\" co-wrote a film starring Nicolas Cage and T\u00e9a Leoni?",
+            "top_titles": [
+              "City of Angels (film)",
+              "Ungod",
+              "Season of the Witch (2011 film)",
+              "The Family Man",
+              "Gone in 60 Seconds (2000 film)"
+            ]
+          },
+          {
+            "query": "What screenwriter with credits for \"Evolution\" co-wrote a film starring Nicolas Cage and T\u00e9a Leoni?",
+            "top_titles": [
+              "City of Angels (film)",
+              "Ungod",
+              "Season of the Witch (2011 film)",
+              "The Family Man",
+              "Gone in 60 Seconds (2000 film)"
+            ]
+          }
+        ],
+        "hop_decisions": [
+          {
+            "hop": 1,
+            "query": "What screenwriter with credits for \"Evolution\" co-wrote a film starring Nicolas Cage and T\u00e9a Leoni?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"David Diamond and David Weissman\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "David Diamond and David Weissman"
+            },
+            "sufficient": true,
+            "next_query": "What screenwriter with credits for \"Evolution\" co-wrote a film starring Nicolas Cage and T\u00e9a Leoni?"
+          },
+          {
+            "hop": 2,
+            "query": "What screenwriter with credits for \"Evolution\" co-wrote a film starring Nicolas Cage and T\u00e9a Leoni?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"David Diamond and David Weissman\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "David Diamond and David Weissman"
+            },
+            "sufficient": true,
+            "next_query": "What screenwriter with credits for \"Evolution\" co-wrote a film starring Nicolas Cage and T\u00e9a Leoni?"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5ab3b0bf5542992ade7c6e39",
+      "question": "What year did Guns N Roses perform a promo for a movie starring Arnold Schwarzenegger as a former New York Police detective?",
+      "type": "bridge",
+      "level": "hard",
+      "gold_answer": "1999",
+      "gold_supporting_titles": [
+        "End of Days (film)",
+        "Oh My God (Guns N' Roses song)"
+      ],
+      "gold_multihop": true,
+      "baseline_answer": "1993\n\nThis year corresponds to the release of the film \"Last Action Hero,\" which features Arnold Schwarzenegger in the role of a former New York Police detective.",
+      "agent_answer": "1993",
+      "baseline_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_trace": {
+        "num_hops": 2,
+        "sub_queries": [
+          "What year did Guns N Roses perform a promo for a movie starring Arnold Schwarzenegger as a former New York Police detective?",
+          "What year did Guns N Roses perform a promo for a movie starring Arnold Schwarzenegger as a former New York Police detective?"
+        ],
+        "per_hop": [
+          {
+            "query": "What year did Guns N Roses perform a promo for a movie starring Arnold Schwarzenegger as a former New York Police detective?",
+            "top_titles": [
+              "Guns N' Roses discography",
+              "Neuro: Supernatural Detective",
+              "Steven Adler",
+              "Oh My God (Guns N' Roses song)",
+              "Last Action Hero"
+            ]
+          },
+          {
+            "query": "What year did Guns N Roses perform a promo for a movie starring Arnold Schwarzenegger as a former New York Police detective?",
+            "top_titles": [
+              "Guns N' Roses discography",
+              "Neuro: Supernatural Detective",
+              "Steven Adler",
+              "Oh My God (Guns N' Roses song)",
+              "Last Action Hero"
+            ]
+          }
+        ],
+        "hop_decisions": [
+          {
+            "hop": 1,
+            "query": "What year did Guns N Roses perform a promo for a movie starring Arnold Schwarzenegger as a former New York Police detective?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"1993\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "1993"
+            },
+            "sufficient": true,
+            "next_query": "What year did Guns N Roses perform a promo for a movie starring Arnold Schwarzenegger as a former New York Police detective?"
+          },
+          {
+            "hop": 2,
+            "query": "What year did Guns N Roses perform a promo for a movie starring Arnold Schwarzenegger as a former New York Police detective?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"1993\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "1993"
+            },
+            "sufficient": true,
+            "next_query": "What year did Guns N Roses perform a promo for a movie starring Arnold Schwarzenegger as a former New York Police detective?"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5ab56e32554299637185c594",
+      "question": "Are Random House Tower and 888 7th Avenue both used for real estate?",
+      "type": "comparison",
+      "level": "hard",
+      "gold_answer": "no",
+      "gold_supporting_titles": [
+        "888 7th Avenue",
+        "Random House Tower"
+      ],
+      "gold_multihop": true,
+      "baseline_answer": "No, based on the provided context, neither Random House Tower nor 888 7th Avenue are explicitly stated to be used for real estate. Random House Tower is likely a building or structure, possibly related to publishing, not mentioned in relation to real estate. 888 7th Avenue, while it sounds like an address, does not have any indication in the given context that it is associated with real estate. The context discusses real estate properties and investments, but does not specify these buildings.",
+      "agent_answer": "Random House Tower and 888 7th Avenue are both used for real estate.",
+      "baseline_metrics": {
+        "em": 0.0,
+        "f1": 0.025641025641025647
+      },
+      "agent_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_trace": {
+        "num_hops": 2,
+        "sub_queries": [
+          "Are Random House Tower and 888 7th Avenue both used for real estate?",
+          "Are Random House Tower and 888 7th Avenue both used for real estate?"
+        ],
+        "per_hop": [
+          {
+            "query": "Are Random House Tower and 888 7th Avenue both used for real estate?",
+            "top_titles": [
+              "Loan modification in the United States",
+              "Real estate technology",
+              "South Phoenix",
+              "Real estate benchmarking",
+              "Hounsfield Heights/Briar Hill, Calgary"
+            ]
+          },
+          {
+            "query": "Are Random House Tower and 888 7th Avenue both used for real estate?",
+            "top_titles": [
+              "Loan modification in the United States",
+              "Real estate technology",
+              "South Phoenix",
+              "Real estate benchmarking",
+              "Hounsfield Heights/Briar Hill, Calgary"
+            ]
+          }
+        ],
+        "hop_decisions": [
+          {
+            "hop": 1,
+            "query": "Are Random House Tower and 888 7th Avenue both used for real estate?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Based on the provided information, neither Random House Tower nor 888 7th Avenue is explicitly stated to be used for real estate. However, both being addresses suggest they are likely real estate-related entities or properties.\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Based on the provided information, neither Random House Tower nor 888 7th Avenue is explicitly stated to be used for real estate. However, both being addresses suggest they are likely real estate-related entities or properties."
+            },
+            "sufficient": true,
+            "next_query": "Are Random House Tower and 888 7th Avenue both used for real estate?"
+          },
+          {
+            "hop": 2,
+            "query": "Are Random House Tower and 888 7th Avenue both used for real estate?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Random House Tower and 888 7th Avenue are both used for real estate.\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Random House Tower and 888 7th Avenue are both used for real estate."
+            },
+            "sufficient": true,
+            "next_query": "Are Random House Tower and 888 7th Avenue both used for real estate?"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5ab6d09255429954757d337d",
+      "question": "The football manager who recruited David Beckham managed Manchester United during what timeframe?",
+      "type": "bridge",
+      "level": "hard",
+      "gold_answer": "from 1986 to 2013",
+      "gold_supporting_titles": [
+        "1995\u201396 Manchester United F.C. season",
+        "Alex Ferguson"
+      ],
+      "gold_multihop": true,
+      "baseline_answer": "Sir Matt Busby managed Manchester United during the timeframe from 1945 to 1969, and again for the second half of the 1970-71 season.",
+      "agent_answer": "The football manager who recruited David Beckham managed Manchester United during the 1995-96 season.",
+      "baseline_metrics": {
+        "em": 0.0,
+        "f1": 0.16666666666666669
+      },
+      "agent_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_trace": {
+        "num_hops": 2,
+        "sub_queries": [
+          "The football manager who recruited David Beckham managed Manchester United during what timeframe?",
+          "The football manager who recruited David Beckham managed Manchester United during what timeframe?"
+        ],
+        "per_hop": [
+          {
+            "query": "The football manager who recruited David Beckham managed Manchester United during what timeframe?",
+            "top_titles": [
+              "1996 FA Charity Shield",
+              "1995\u201396 Manchester United F",
+              "David Beckham's Soccer USA",
+              "David Beckham Academy",
+              "Matt Busby"
+            ]
+          },
+          {
+            "query": "The football manager who recruited David Beckham managed Manchester United during what timeframe?",
+            "top_titles": [
+              "1996 FA Charity Shield",
+              "1995\u201396 Manchester United F",
+              "David Beckham's Soccer USA",
+              "David Beckham Academy",
+              "Matt Busby"
+            ]
+          }
+        ],
+        "hop_decisions": [
+          {
+            "hop": 1,
+            "query": "The football manager who recruited David Beckham managed Manchester United during what timeframe?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"The football manager who recruited David Beckham and managed Manchester United was Matt Busby during the timeframe 1945-1969 and again for the second half of the 1970\u201371 season.\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "The football manager who recruited David Beckham and managed Manchester United was Matt Busby during the timeframe 1945-1969 and again for the second half of the 1970\u201371 season."
+            },
+            "sufficient": true,
+            "next_query": "The football manager who recruited David Beckham managed Manchester United during what timeframe?"
+          },
+          {
+            "hop": 2,
+            "query": "The football manager who recruited David Beckham managed Manchester United during what timeframe?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"The football manager who recruited David Beckham managed Manchester United during the 1995-96 season.\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "The football manager who recruited David Beckham managed Manchester United during the 1995-96 season."
+            },
+            "sufficient": true,
+            "next_query": "The football manager who recruited David Beckham managed Manchester United during what timeframe?"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5a75e05c55429976ec32bc5f",
+      "question": "Brown State Fishing Lake is in a country that has a population of how many inhabitants ?",
+      "type": "bridge",
+      "level": "hard",
+      "gold_answer": "9,984",
+      "gold_supporting_titles": [
+        "Brown County, Kansas",
+        "Brown State Fishing Lake"
+      ],
+      "gold_multihop": true,
+      "baseline_answer": "The provided context does not contain any information about a place called Brown State Fishing Lake. There seems to be a mix-up in the question as no such lake or state exists in the given context. Could you please clarify the details?",
+      "agent_answer": "Canada",
+      "baseline_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_trace": {
+        "num_hops": 2,
+        "sub_queries": [
+          "Brown State Fishing Lake is in a country that has a population of how many inhabitants ?",
+          "Brown State Fishing Lake is in a country that has a population of how many inhabitants ?"
+        ],
+        "per_hop": [
+          {
+            "query": "Brown State Fishing Lake is in a country that has a population of how many inhabitants ?",
+            "top_titles": [
+              "Commanda Lake",
+              "Higgins Lake",
+              "Shawnee State Fishing Lake",
+              "Osage State Fishing Lake",
+              "Higgins Lake, Michigan"
+            ]
+          },
+          {
+            "query": "Brown State Fishing Lake is in a country that has a population of how many inhabitants ?",
+            "top_titles": [
+              "Commanda Lake",
+              "Higgins Lake",
+              "Shawnee State Fishing Lake",
+              "Osage State Fishing Lake",
+              "Higgins Lake, Michigan"
+            ]
+          }
+        ],
+        "hop_decisions": [
+          {
+            "hop": 1,
+            "query": "Brown State Fishing Lake is in a country that has a population of how many inhabitants ?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"The population of the country where Brown State Fishing Lake is located is not provided in the given context. However, based on the information available, it is a lake in Canada.\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "The population of the country where Brown State Fishing Lake is located is not provided in the given context. However, based on the information available, it is a lake in Canada."
+            },
+            "sufficient": true,
+            "next_query": "Brown State Fishing Lake is in a country that has a population of how many inhabitants ?"
+          },
+          {
+            "hop": 2,
+            "query": "Brown State Fishing Lake is in a country that has a population of how many inhabitants ?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Canada\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Canada"
+            },
+            "sufficient": true,
+            "next_query": "Brown State Fishing Lake is in a country that has a population of how many inhabitants ?"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5ab3e45655429976abd1bcd4",
+      "question": "The Vermont Catamounts men's soccer team currently competes in a conference that was formerly known as what from 1988 to 1996?",
+      "type": "bridge",
+      "level": "hard",
+      "gold_answer": "the North Atlantic Conference",
+      "gold_supporting_titles": [
+        "America East Conference",
+        "Vermont Catamounts men's soccer"
+      ],
+      "gold_multihop": true,
+      "baseline_answer": "The information provided does not mention any Vermont Catamounts men's soccer team or its conference history. Therefore, based on the given context, there is no answer to this question as it pertains to information not provided.",
+      "agent_answer": "America East",
+      "baseline_metrics": {
+        "em": 0.0,
+        "f1": 0.05405405405405406
+      },
+      "agent_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_trace": {
+        "num_hops": 2,
+        "sub_queries": [
+          "The Vermont Catamounts men's soccer team currently competes in a conference that was formerly known as what from 1988 to 1996?",
+          "The Vermont Catamounts men's soccer team currently competes in a conference that was formerly known as what from 1988 to 1996?"
+        ],
+        "per_hop": [
+          {
+            "query": "The Vermont Catamounts men's soccer team currently competes in a conference that was formerly known as what from 1988 to 1996?",
+            "top_titles": [
+              "2016\u201317 Vermont Catamounts men's basketball team",
+              "2013\u201314 Vermont Catamounts men's basketball team",
+              "2015\u201316 Vermont Catamounts men's basketball team",
+              "Vermont Catamounts men's basketball",
+              "Vermont Catamounts men's ice hockey"
+            ]
+          },
+          {
+            "query": "The Vermont Catamounts men's soccer team currently competes in a conference that was formerly known as what from 1988 to 1996?",
+            "top_titles": [
+              "2016\u201317 Vermont Catamounts men's basketball team",
+              "2013\u201314 Vermont Catamounts men's basketball team",
+              "2015\u201316 Vermont Catamounts men's basketball team",
+              "Vermont Catamounts men's basketball",
+              "Vermont Catamounts men's ice hockey"
+            ]
+          }
+        ],
+        "hop_decisions": [
+          {
+            "hop": 1,
+            "query": "The Vermont Catamounts men's soccer team currently competes in a conference that was formerly known as what from 1988 to 1996?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"ECAC Hockey\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "ECAC Hockey"
+            },
+            "sufficient": true,
+            "next_query": "The Vermont Catamounts men's soccer team currently competes in a conference that was formerly known as what from 1988 to 1996?"
+          },
+          {
+            "hop": 2,
+            "query": "The Vermont Catamounts men's soccer team currently competes in a conference that was formerly known as what from 1988 to 1996?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"America East\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "America East"
+            },
+            "sufficient": true,
+            "next_query": "The Vermont Catamounts men's soccer team currently competes in a conference that was formerly known as what from 1988 to 1996?"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5ab29c24554299449642c932",
+      "question": "Are Giuseppe Verdi and Ambroise Thomas both Opera composers ?",
+      "type": "comparison",
+      "level": "hard",
+      "gold_answer": "yes",
+      "gold_supporting_titles": [
+        "Ambroise Thomas",
+        "Giuseppe Verdi"
+      ],
+      "gold_multihop": true,
+      "baseline_answer": "Yes, both Giuseppe Verdi and Ambroise Thomas are opera composers.",
+      "agent_answer": "Yes, Giuseppe Verdi and Ambroise Thomas are both opera composers.",
+      "baseline_metrics": {
+        "em": 0.0,
+        "f1": 0.18181818181818182
+      },
+      "agent_metrics": {
+        "em": 0.0,
+        "f1": 0.18181818181818182
+      },
+      "agent_trace": {
+        "num_hops": 2,
+        "sub_queries": [
+          "Are Giuseppe Verdi and Ambroise Thomas both Opera composers ?",
+          "Are Giuseppe Verdi and Ambroise Thomas both Opera composers ?"
+        ],
+        "per_hop": [
+          {
+            "query": "Are Giuseppe Verdi and Ambroise Thomas both Opera composers ?",
+            "top_titles": [
+              "Teatro Giuseppe Verdi",
+              "List of major opera composers",
+              "Verdi, the King of Melody",
+              "Giuseppe Verdi (film)",
+              "Armand Castelmary"
+            ]
+          },
+          {
+            "query": "Are Giuseppe Verdi and Ambroise Thomas both Opera composers ?",
+            "top_titles": [
+              "Teatro Giuseppe Verdi",
+              "List of major opera composers",
+              "Verdi, the King of Melody",
+              "Giuseppe Verdi (film)",
+              "Armand Castelmary"
+            ]
+          }
+        ],
+        "hop_decisions": [
+          {
+            "hop": 1,
+            "query": "Are Giuseppe Verdi and Ambroise Thomas both Opera composers ?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Yes, Giuseppe Verdi and Ambroise Thomas are both opera composers.\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Yes, Giuseppe Verdi and Ambroise Thomas are both opera composers."
+            },
+            "sufficient": true,
+            "next_query": "Are Giuseppe Verdi and Ambroise Thomas both Opera composers ?"
+          },
+          {
+            "hop": 2,
+            "query": "Are Giuseppe Verdi and Ambroise Thomas both Opera composers ?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Yes, Giuseppe Verdi and Ambroise Thomas are both opera composers.\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Yes, Giuseppe Verdi and Ambroise Thomas are both opera composers."
+            },
+            "sufficient": true,
+            "next_query": "Are Giuseppe Verdi and Ambroise Thomas both Opera composers ?"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5ae0d4c9554299603e418468",
+      "question": "Roger O. Egeberg was Assistant Secretary for Health and Scientific Affairs during the administration of a president that served during what years?",
+      "type": "bridge",
+      "level": "hard",
+      "gold_answer": "1969 until 1974",
+      "gold_supporting_titles": [
+        "Richard Nixon",
+        "Roger O. Egeberg"
+      ],
+      "gold_multihop": true,
+      "baseline_answer": "There is no information provided about Roger O. Egeberg in the given context. Therefore, it is not possible to answer the question based on the provided context.",
+      "agent_answer": "Roger O. Egeberg served as Assistant Secretary for Health and Scientific Affairs during the administrations of Presidents Bill Clinton (1993-2001) and George W. Bush (2001-2009).",
+      "baseline_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_trace": {
+        "num_hops": 2,
+        "sub_queries": [
+          "Roger O. Egeberg was Assistant Secretary for Health and Scientific Affairs during the administration of a president that served during what years?",
+          "Roger O. Egeberg was Assistant Secretary for Health and Scientific Affairs during the administration of a president that served during what years?"
+        ],
+        "per_hop": [
+          {
+            "query": "Roger O. Egeberg was Assistant Secretary for Health and Scientific Affairs during the administration of a president that served during what years?",
+            "top_titles": [
+              "Steven K",
+              "Robert Hormats",
+              "Office of Population Affairs",
+              "Edward D",
+              "Robert R"
+            ]
+          },
+          {
+            "query": "Roger O. Egeberg was Assistant Secretary for Health and Scientific Affairs during the administration of a president that served during what years?",
+            "top_titles": [
+              "Steven K",
+              "Robert Hormats",
+              "Office of Population Affairs",
+              "Edward D",
+              "Robert R"
+            ]
+          }
+        ],
+        "hop_decisions": [
+          {
+            "hop": 1,
+            "query": "Roger O. Egeberg was Assistant Secretary for Health and Scientific Affairs during the administration of a president that served during what years?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Roger O. Egeberg served as Assistant Secretary for Health and Scientific Affairs during the administrations of Jimmy Carter (1977-1981) and Ronald Reagan (1981-1989).\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Roger O. Egeberg served as Assistant Secretary for Health and Scientific Affairs during the administrations of Jimmy Carter (1977-1981) and Ronald Reagan (1981-1989)."
+            },
+            "sufficient": true,
+            "next_query": "Roger O. Egeberg was Assistant Secretary for Health and Scientific Affairs during the administration of a president that served during what years?"
+          },
+          {
+            "hop": 2,
+            "query": "Roger O. Egeberg was Assistant Secretary for Health and Scientific Affairs during the administration of a president that served during what years?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Roger O. Egeberg served as Assistant Secretary for Health and Scientific Affairs during the administrations of Presidents Bill Clinton (1993-2001) and George W. Bush (2001-2009).\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Roger O. Egeberg served as Assistant Secretary for Health and Scientific Affairs during the administrations of Presidents Bill Clinton (1993-2001) and George W. Bush (2001-2009)."
+            },
+            "sufficient": true,
+            "next_query": "Roger O. Egeberg was Assistant Secretary for Health and Scientific Affairs during the administration of a president that served during what years?"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5a8133725542995ce29dcbdb",
+      "question": "Which writer was from England, Henry Roth or Robert Erskine Childers?",
+      "type": "comparison",
+      "level": "hard",
+      "gold_answer": "Robert Erskine Childers DSC",
+      "gold_supporting_titles": [
+        "Henry Roth",
+        "Robert Erskine Childers"
+      ],
+      "gold_multihop": true,
+      "baseline_answer": "Robert Erskine Childers was from England, not Henry Roth. According to the provided context, Robert Erskine Childers was a British writer.",
+      "agent_answer": "Robert Erskine Childers",
+      "baseline_metrics": {
+        "em": 0.0,
+        "f1": 0.2608695652173913
+      },
+      "agent_metrics": {
+        "em": 0.0,
+        "f1": 0.8571428571428571
+      },
+      "agent_trace": {
+        "num_hops": 2,
+        "sub_queries": [
+          "Which writer was from England, Henry Roth or Robert Erskine Childers?",
+          "Which writer was from England, Henry Roth or Robert Erskine Childers?"
+        ],
+        "per_hop": [
+          {
+            "query": "Which writer was from England, Henry Roth or Robert Erskine Childers?",
+            "top_titles": [
+              "Robert Erskine Childers",
+              "Erskine Barton Childers",
+              "Robert Caesar Childers",
+              "Molly Childers",
+              "Robert Barton"
+            ]
+          },
+          {
+            "query": "Which writer was from England, Henry Roth or Robert Erskine Childers?",
+            "top_titles": [
+              "Robert Erskine Childers",
+              "Erskine Barton Childers",
+              "Robert Caesar Childers",
+              "Molly Childers",
+              "Robert Barton"
+            ]
+          }
+        ],
+        "hop_decisions": [
+          {
+            "hop": 1,
+            "query": "Which writer was from England, Henry Roth or Robert Erskine Childers?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Robert Erskine Childers\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Robert Erskine Childers"
+            },
+            "sufficient": true,
+            "next_query": "Which writer was from England, Henry Roth or Robert Erskine Childers?"
+          },
+          {
+            "hop": 2,
+            "query": "Which writer was from England, Henry Roth or Robert Erskine Childers?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Robert Erskine Childers\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Robert Erskine Childers"
+            },
+            "sufficient": true,
+            "next_query": "Which writer was from England, Henry Roth or Robert Erskine Childers?"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5ae7a8175542993210983ed8",
+      "question": "Which other Mexican Formula One race car driver has held the podium besides the Force India driver born in 1990?",
+      "type": "bridge",
+      "level": "hard",
+      "gold_answer": "Pedro Rodr\u00edguez",
+      "gold_supporting_titles": [
+        "Formula One drivers from Mexico",
+        "Sergio P\u00e9rez"
+      ],
+      "gold_multihop": true,
+      "baseline_answer": "There is no information provided about any Mexican Formula One race car drivers or drivers born in 1990. The question cannot be answered based solely on the given context. However, the passage does mention a Mexican driver, Tony Ave, but he has not held the podium. The Force India driver born in 1990 (Michael James Lewis) has not been mentioned as having a podium finish either. Therefore, based on the information provided, there is no answer to the question as posed.",
+      "agent_answer": "Tony Ave",
+      "baseline_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_trace": {
+        "num_hops": 2,
+        "sub_queries": [
+          "Which other Mexican Formula One race car driver has held the podium besides the Force India driver born in 1990?",
+          "Which other Mexican Formula One race car driver has held the podium besides the Force India driver born in 1990?"
+        ],
+        "per_hop": [
+          {
+            "query": "Which other Mexican Formula One race car driver has held the podium besides the Force India driver born in 1990?",
+            "top_titles": [
+              "2009 Singapore Grand Prix",
+              "2014 Bahrain Grand Prix",
+              "Force India VJM04",
+              "Michael James Lewis",
+              "Tony Ave"
+            ]
+          },
+          {
+            "query": "Which other Mexican Formula One race car driver has held the podium besides the Force India driver born in 1990?",
+            "top_titles": [
+              "2009 Singapore Grand Prix",
+              "2014 Bahrain Grand Prix",
+              "Force India VJM04",
+              "Michael James Lewis",
+              "Tony Ave"
+            ]
+          }
+        ],
+        "hop_decisions": [
+          {
+            "hop": 1,
+            "query": "Which other Mexican Formula One race car driver has held the podium besides the Force India driver born in 1990?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Paul di Resta\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Paul di Resta"
+            },
+            "sufficient": true,
+            "next_query": "Which other Mexican Formula One race car driver has held the podium besides the Force India driver born in 1990?"
+          },
+          {
+            "hop": 2,
+            "query": "Which other Mexican Formula One race car driver has held the podium besides the Force India driver born in 1990?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Tony Ave\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Tony Ave"
+            },
+            "sufficient": true,
+            "next_query": "Which other Mexican Formula One race car driver has held the podium besides the Force India driver born in 1990?"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5ae6050f55429929b0807a5e",
+      "question": "This singer of A Rather Blustery Day also voiced what hedgehog?",
+      "type": "bridge",
+      "level": "hard",
+      "gold_answer": "Sonic",
+      "gold_supporting_titles": [
+        "A Rather Blustery Day",
+        "Jim Cummings"
+      ],
+      "gold_multihop": true,
+      "baseline_answer": "Jim Cummings voiced the hedgehog in \"A Rather Blustery Day,\" which is a song from \"Winnie the Pooh and the Blustery Day.\" Jim Cummings is also known for voicing Tigger in the 2000 film \"The Tigger Movie\" and has provided numerous other voices in various Disney productions. However, the question specifically asks about \"A Rather Blustery Day,\" and the singer of that song is Jim Cummings. Jim Cummings is famously known for voicing Sonic the Hedgehog, which includes voicing the hedgehog character in question. Therefore, the hedgehog in question is Sonic the Hedgehog.",
+      "agent_answer": "Tiger",
+      "baseline_metrics": {
+        "em": 0.0,
+        "f1": 0.024999999999999998
+      },
+      "agent_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_trace": {
+        "num_hops": 2,
+        "sub_queries": [
+          "This singer of A Rather Blustery Day also voiced what hedgehog?",
+          "This singer of A Rather Blustery Day also voiced what hedgehog?"
+        ],
+        "per_hop": [
+          {
+            "query": "This singer of A Rather Blustery Day also voiced what hedgehog?",
+            "top_titles": [
+              "The Wonderful Thing About Tiggers",
+              "Winnie the Pooh and the Blustery Day",
+              "A Rather Blustery Day",
+              "Kate Higgins",
+              "Hip Hip Pooh-Ray!"
+            ]
+          },
+          {
+            "query": "This singer of A Rather Blustery Day also voiced what hedgehog?",
+            "top_titles": [
+              "The Wonderful Thing About Tiggers",
+              "Winnie the Pooh and the Blustery Day",
+              "A Rather Blustery Day",
+              "Kate Higgins",
+              "Hip Hip Pooh-Ray!"
+            ]
+          }
+        ],
+        "hop_decisions": [
+          {
+            "hop": 1,
+            "query": "This singer of A Rather Blustery Day also voiced what hedgehog?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Tiger\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Tiger"
+            },
+            "sufficient": true,
+            "next_query": "This singer of A Rather Blustery Day also voiced what hedgehog?"
+          },
+          {
+            "hop": 2,
+            "query": "This singer of A Rather Blustery Day also voiced what hedgehog?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Tiger\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Tiger"
+            },
+            "sufficient": true,
+            "next_query": "This singer of A Rather Blustery Day also voiced what hedgehog?"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5adddccd5542997dc7907069",
+      "question": "Aside from the Apple Remote, what other device can control the program Apple Remote was originally designed to interact with?",
+      "type": "bridge",
+      "level": "hard",
+      "gold_answer": "keyboard function keys",
+      "gold_supporting_titles": [
+        "Apple Remote",
+        "Front Row (software)"
+      ],
+      "gold_multihop": true,
+      "baseline_answer": "The Apple Remote was originally designed to interact with the Front Row media program on the iSight iMac G5. However, it can now control various other devices beyond the iSight iMac G5, including some later desktop and portable Macintosh computers, and was used with the first three generations of Apple TV.",
+      "agent_answer": "Trainmaster Command Control",
+      "baseline_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_trace": {
+        "num_hops": 2,
+        "sub_queries": [
+          "Aside from the Apple Remote, what other device can control the program Apple Remote was originally designed to interact with?",
+          "Aside from the Apple Remote, what other device can control the program Apple Remote was originally designed to interact with?"
+        ],
+        "per_hop": [
+          {
+            "query": "Aside from the Apple Remote, what other device can control the program Apple Remote was originally designed to interact with?",
+            "top_titles": [
+              "Trainmaster Command Control",
+              "Apple Watch",
+              "Apple Remote",
+              "Universal remote",
+              "NetSupport Manager"
+            ]
+          },
+          {
+            "query": "Aside from the Apple Remote, what other device can control the program Apple Remote was originally designed to interact with?",
+            "top_titles": [
+              "Trainmaster Command Control",
+              "Apple Watch",
+              "Apple Remote",
+              "Universal remote",
+              "NetSupport Manager"
+            ]
+          }
+        ],
+        "hop_decisions": [
+          {
+            "hop": 1,
+            "query": "Aside from the Apple Remote, what other device can control the program Apple Remote was originally designed to interact with?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Trainmaster Command (TMCC)\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Trainmaster Command (TMCC)"
+            },
+            "sufficient": true,
+            "next_query": "Aside from the Apple Remote, what other device can control the program Apple Remote was originally designed to interact with?"
+          },
+          {
+            "hop": 2,
+            "query": "Aside from the Apple Remote, what other device can control the program Apple Remote was originally designed to interact with?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Trainmaster Command Control\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Trainmaster Command Control"
+            },
+            "sufficient": true,
+            "next_query": "Aside from the Apple Remote, what other device can control the program Apple Remote was originally designed to interact with?"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5ae2070a5542994d89d5b313",
+      "question": "Which performance act has a higher instrument to person ratio, Badly Drawn Boy or Wolf Alice? ",
+      "type": "comparison",
+      "level": "hard",
+      "gold_answer": "Badly Drawn Boy",
+      "gold_supporting_titles": [
+        "Badly Drawn Boy",
+        "Wolf Alice"
+      ],
+      "gold_multihop": true,
+      "baseline_answer": "There is no information provided about Wolf Alice in the given context, nor is there any comparison between Badly Drawn Boy and Wolf Alice regarding their instrument-to-person ratios. The context only provides information about Badly Drawn Boy's discography and does not include details about other acts or their instrumentation. Therefore, it's not possible to answer the question based solely on the given information.",
+      "agent_answer": "Badly Drawn Boy",
+      "baseline_metrics": {
+        "em": 0.0,
+        "f1": 0.0967741935483871
+      },
+      "agent_metrics": {
+        "em": 1.0,
+        "f1": 1.0
+      },
+      "agent_trace": {
+        "num_hops": 2,
+        "sub_queries": [
+          "Which performance act has a higher instrument to person ratio, Badly Drawn Boy or Wolf Alice? ",
+          "Which performance act has a higher instrument to person ratio, Badly Drawn Boy or Wolf Alice? "
+        ],
+        "per_hop": [
+          {
+            "query": "Which performance act has a higher instrument to person ratio, Badly Drawn Boy or Wolf Alice? ",
+            "top_titles": [
+              "Badly Drawn Boy discography",
+              "Something to Talk About (Badly Drawn Boy song)",
+              "About a Boy (soundtrack)",
+              "The Hour of Bewilderbeast",
+              "Under an Hour"
+            ]
+          },
+          {
+            "query": "Which performance act has a higher instrument to person ratio, Badly Drawn Boy or Wolf Alice? ",
+            "top_titles": [
+              "Badly Drawn Boy discography",
+              "Something to Talk About (Badly Drawn Boy song)",
+              "About a Boy (soundtrack)",
+              "The Hour of Bewilderbeast",
+              "Under an Hour"
+            ]
+          }
+        ],
+        "hop_decisions": [
+          {
+            "hop": 1,
+            "query": "Which performance act has a higher instrument to person ratio, Badly Drawn Boy or Wolf Alice? ",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Badly Drawn Boy\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Badly Drawn Boy"
+            },
+            "sufficient": true,
+            "next_query": "Which performance act has a higher instrument to person ratio, Badly Drawn Boy or Wolf Alice? "
+          },
+          {
+            "hop": 2,
+            "query": "Which performance act has a higher instrument to person ratio, Badly Drawn Boy or Wolf Alice? ",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Badly Drawn Boy\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Badly Drawn Boy"
+            },
+            "sufficient": true,
+            "next_query": "Which performance act has a higher instrument to person ratio, Badly Drawn Boy or Wolf Alice? "
+          }
+        ]
+      }
+    },
+    {
+      "id": "5ae22b8d554299234fd0440f",
+      "question": "What was the father of Kasper Schmeichel voted to be by the IFFHS in 1992?",
+      "type": "bridge",
+      "level": "hard",
+      "gold_answer": "World's Best Goalkeeper",
+      "gold_supporting_titles": [
+        "Kasper Schmeichel",
+        "Peter Schmeichel"
+      ],
+      "gold_multihop": true,
+      "baseline_answer": "Based on the information provided, there seems to be a mix-up in the question. There is no mention of Kasper Schmeichel or his father being voted for by the IFFHS in 1992. The text does not provide any information about Kasper Schmeichel or his father. However, the text mentions Sommeren '92, which is a Danish film about the 1992 UEFA European Football Championship, Denmark's greatest ever football triumph. For this event, the film examines the relationship between the team's coach, Richard M\u00f8ller Nielsen, and the Danish Football Association, but it does not detail who was voted what by the IFFHS in 1992. \n\nGiven the context, the correct answer would be that the film \"Sommeren '92\" was based on the 1992 UEFA European Football Championship, which Denmark won, but it does not address the specific question about the IFFHS voting.",
+      "agent_answer": "Edson Arantes do Nascimento",
+      "baseline_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_trace": {
+        "num_hops": 2,
+        "sub_queries": [
+          "What was the father of Kasper Schmeichel voted to be by the IFFHS in 1992?",
+          "What was the father of Kasper Schmeichel voted to be by the IFFHS in 1992?"
+        ],
+        "per_hop": [
+          {
+            "query": "What was the father of Kasper Schmeichel voted to be by the IFFHS in 1992?",
+            "top_titles": [
+              "To Know Him Is to Love Him",
+              "Pel\u00e9",
+              "IFFHS World's Best Club Coach",
+              "Sommeren '92",
+              "IFFHS World's Best Goalkeeper"
+            ]
+          },
+          {
+            "query": "What was the father of Kasper Schmeichel voted to be by the IFFHS in 1992?",
+            "top_titles": [
+              "To Know Him Is to Love Him",
+              "Pel\u00e9",
+              "IFFHS World's Best Club Coach",
+              "Sommeren '92",
+              "IFFHS World's Best Goalkeeper"
+            ]
+          }
+        ],
+        "hop_decisions": [
+          {
+            "hop": 1,
+            "query": "What was the father of Kasper Schmeichel voted to be by the IFFHS in 1992?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Edson Arantes do Nascimento (Pel\u00e9)\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Edson Arantes do Nascimento (Pel\u00e9)"
+            },
+            "sufficient": true,
+            "next_query": "What was the father of Kasper Schmeichel voted to be by the IFFHS in 1992?"
+          },
+          {
+            "hop": 2,
+            "query": "What was the father of Kasper Schmeichel voted to be by the IFFHS in 1992?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Edson Arantes do Nascimento\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Edson Arantes do Nascimento"
+            },
+            "sufficient": true,
+            "next_query": "What was the father of Kasper Schmeichel voted to be by the IFFHS in 1992?"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5a722b8655429971e9dc9329",
+      "question": "Who was the writer of These Boots Are Made for Walkin' and who died in 2007?",
+      "type": "bridge",
+      "level": "hard",
+      "gold_answer": "Barton Lee Hazlewood",
+      "gold_supporting_titles": [
+        "Lee Hazlewood",
+        "These Boots Are Made for Walkin'"
+      ],
+      "gold_multihop": true,
+      "baseline_answer": "The writer of \"These Boots Are Made for Walkin'\" was Nancy Sinatra. She died in 2007.",
+      "agent_answer": "Nancy Sinatra",
+      "baseline_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_trace": {
+        "num_hops": 2,
+        "sub_queries": [
+          "Who was the writer of These Boots Are Made for Walkin' and who died in 2007?",
+          "Who was the writer of These Boots Are Made for Walkin' and who died in 2007?"
+        ],
+        "per_hop": [
+          {
+            "query": "Who was the writer of These Boots Are Made for Walkin' and who died in 2007?",
+            "top_titles": [
+              "Death of Abdul Wali",
+              "2007 Memorial Cup",
+              "Jim Shoulders",
+              "Puss N' Boots/These Boots Are Made for Walkin'",
+              "Boots (album)"
+            ]
+          },
+          {
+            "query": "Who was the writer of These Boots Are Made for Walkin' and who died in 2007?",
+            "top_titles": [
+              "Death of Abdul Wali",
+              "2007 Memorial Cup",
+              "Jim Shoulders",
+              "Puss N' Boots/These Boots Are Made for Walkin'",
+              "Boots (album)"
+            ]
+          }
+        ],
+        "hop_decisions": [
+          {
+            "hop": 1,
+            "query": "Who was the writer of These Boots Are Made for Walkin' and who died in 2007?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Nancy Sinatra\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Nancy Sinatra"
+            },
+            "sufficient": true,
+            "next_query": "Who was the writer of These Boots Are Made for Walkin' and who died in 2007?"
+          },
+          {
+            "hop": 2,
+            "query": "Who was the writer of These Boots Are Made for Walkin' and who died in 2007?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Nancy Sinatra\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Nancy Sinatra"
+            },
+            "sufficient": true,
+            "next_query": "Who was the writer of These Boots Are Made for Walkin' and who died in 2007?"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5adf37a95542995ec70e8f97",
+      "question": "The 2011\u201312 VCU Rams men's basketball team, led by third year head coach Shaka Smart, represented Virginia Commonwealth University which was founded in what year?",
+      "type": "bridge",
+      "level": "hard",
+      "gold_answer": "1838",
+      "gold_supporting_titles": [
+        "2011\u201312 VCU Rams men's basketball team",
+        "Virginia Commonwealth University"
+      ],
+      "gold_multihop": true,
+      "baseline_answer": "The context provided does not explicitly state the founding year of Virginia Commonwealth University. However, based on the information given, we can infer that the 2011-12 VCU Rams men's basketball team was part of the 44th season of Virginia Commonwealth University fielding a men's basketball program. Since this marks the start of the 44th season, it implies that the university began fielding a men's basketball program around the late 1960s or early 1970s. Without a direct statement about the founding year, we cannot pinpoint an exact year, but we know it occurred sometime between 1968 and 1972.",
+      "agent_answer": "1996",
+      "baseline_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_trace": {
+        "num_hops": 2,
+        "sub_queries": [
+          "The 2011\u201312 VCU Rams men's basketball team, led by third year head coach Shaka Smart, represented Virginia Commonwealth University which was founded in what year?",
+          "The 2011\u201312 VCU Rams men's basketball team, led by third year head coach Shaka Smart, represented Virginia Commonwealth University which was founded in what year?"
+        ],
+        "per_hop": [
+          {
+            "query": "The 2011\u201312 VCU Rams men's basketball team, led by third year head coach Shaka Smart, represented Virginia Commonwealth University which was founded in what year?",
+            "top_titles": [
+              "2010\u201311 VCU Rams men's basketball team",
+              "2011\u201312 VCU Rams men's basketball team",
+              "2012\u201313 VCU Rams men's basketball team",
+              "2013\u201314 VCU Rams men's basketball team",
+              "2004\u201305 VCU Rams men's basketball team"
+            ]
+          },
+          {
+            "query": "The 2011\u201312 VCU Rams men's basketball team, led by third year head coach Shaka Smart, represented Virginia Commonwealth University which was founded in what year?",
+            "top_titles": [
+              "2010\u201311 VCU Rams men's basketball team",
+              "2011\u201312 VCU Rams men's basketball team",
+              "2012\u201313 VCU Rams men's basketball team",
+              "2013\u201314 VCU Rams men's basketball team",
+              "2004\u201305 VCU Rams men's basketball team"
+            ]
+          }
+        ],
+        "hop_decisions": [
+          {
+            "hop": 1,
+            "query": "The 2011\u201312 VCU Rams men's basketball team, led by third year head coach Shaka Smart, represented Virginia Commonwealth University which was founded in what year?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"1887\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "1887"
+            },
+            "sufficient": true,
+            "next_query": "The 2011\u201312 VCU Rams men's basketball team, led by third year head coach Shaka Smart, represented Virginia Commonwealth University which was founded in what year?"
+          },
+          {
+            "hop": 2,
+            "query": "The 2011\u201312 VCU Rams men's basketball team, led by third year head coach Shaka Smart, represented Virginia Commonwealth University which was founded in what year?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"1996\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "1996"
+            },
+            "sufficient": true,
+            "next_query": "The 2011\u201312 VCU Rams men's basketball team, led by third year head coach Shaka Smart, represented Virginia Commonwealth University which was founded in what year?"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5abd259d55429924427fcf1a",
+      "question": "Are both Dictyosperma, and Huernia described as a genus?",
+      "type": "comparison",
+      "level": "hard",
+      "gold_answer": "yes",
+      "gold_supporting_titles": [
+        "Dictyosperma",
+        "Huernia"
+      ],
+      "gold_multihop": true,
+      "baseline_answer": "Yes, both Dictyosperma and Huernia are described as genera.",
+      "agent_answer": "Both Dictyosperma and Huernia are described as a genus.",
+      "baseline_metrics": {
+        "em": 0.0,
+        "f1": 0.19999999999999998
+      },
+      "agent_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_trace": {
+        "num_hops": 2,
+        "sub_queries": [
+          "Are both Dictyosperma, and Huernia described as a genus?",
+          "Are both Dictyosperma, and Huernia described as a genus?"
+        ],
+        "per_hop": [
+          {
+            "query": "Are both Dictyosperma, and Huernia described as a genus?",
+            "top_titles": [
+              "Huernia",
+              "The Longer We Make Love",
+              "Dictyosperma",
+              "Pre-Commissioning Unit",
+              "Ethiopia\u2013Japan relations"
+            ]
+          },
+          {
+            "query": "Are both Dictyosperma, and Huernia described as a genus?",
+            "top_titles": [
+              "Huernia",
+              "The Longer We Make Love",
+              "Dictyosperma",
+              "Pre-Commissioning Unit",
+              "Ethiopia\u2013Japan relations"
+            ]
+          }
+        ],
+        "hop_decisions": [
+          {
+            "hop": 1,
+            "query": "Are both Dictyosperma, and Huernia described as a genus?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Both Dictyosperma and Huernia are described as a genus.\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Both Dictyosperma and Huernia are described as a genus."
+            },
+            "sufficient": true,
+            "next_query": "Are both Dictyosperma, and Huernia described as a genus?"
+          },
+          {
+            "hop": 2,
+            "query": "Are both Dictyosperma, and Huernia described as a genus?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Both Dictyosperma and Huernia are described as a genus.\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Both Dictyosperma and Huernia are described as a genus."
+            },
+            "sufficient": true,
+            "next_query": "Are both Dictyosperma, and Huernia described as a genus?"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5a828c8355429966c78a6a50",
+      "question": "Kaiser Ventures corporation was founded by an American industrialist who became known as the father of modern American shipbuilding?",
+      "type": "bridge",
+      "level": "hard",
+      "gold_answer": "Henry J. Kaiser",
+      "gold_supporting_titles": [
+        "Henry J. Kaiser",
+        "Kaiser Ventures"
+      ],
+      "gold_multihop": true,
+      "baseline_answer": "No, Kaiser Ventures corporation was not necessarily founded by Henry J. Kaiser. While Henry J. Kaiser was an American industrialist who became known as the father of modern American shipbuilding, the information provided does not explicitly state that Kaiser Ventures was founded by him. Kaiser Ventures is described as a corporation founded by Henry J. Kaiser to provide steel plate for the Pacific Coast shipbuilding industry, but this information pertains to another entity - the Kaiser Shipyards.",
+      "agent_answer": "Henry J. Kaiser",
+      "baseline_metrics": {
+        "em": 0.0,
+        "f1": 0.0821917808219178
+      },
+      "agent_metrics": {
+        "em": 1.0,
+        "f1": 1.0
+      },
+      "agent_trace": {
+        "num_hops": 2,
+        "sub_queries": [
+          "Kaiser Ventures corporation was founded by an American industrialist who became known as the father of modern American shipbuilding?",
+          "Kaiser Ventures corporation was founded by an American industrialist who became known as the father of modern American shipbuilding?"
+        ],
+        "per_hop": [
+          {
+            "query": "Kaiser Ventures corporation was founded by an American industrialist who became known as the father of modern American shipbuilding?",
+            "top_titles": [
+              "Henry J",
+              "Kaiser Ventures",
+              "Neafie &amp; Levy",
+              "Kaiser Shipyards",
+              "Edgar Kaiser Jr"
+            ]
+          },
+          {
+            "query": "Kaiser Ventures corporation was founded by an American industrialist who became known as the father of modern American shipbuilding?",
+            "top_titles": [
+              "Henry J",
+              "Kaiser Ventures",
+              "Neafie &amp; Levy",
+              "Kaiser Shipyards",
+              "Edgar Kaiser Jr"
+            ]
+          }
+        ],
+        "hop_decisions": [
+          {
+            "hop": 1,
+            "query": "Kaiser Ventures corporation was founded by an American industrialist who became known as the father of modern American shipbuilding?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Kaiser Ventures corporation was founded by Henry J. Kaiser\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Kaiser Ventures corporation was founded by Henry J. Kaiser"
+            },
+            "sufficient": true,
+            "next_query": "Kaiser Ventures corporation was founded by an American industrialist who became known as the father of modern American shipbuilding?"
+          },
+          {
+            "hop": 2,
+            "query": "Kaiser Ventures corporation was founded by an American industrialist who became known as the father of modern American shipbuilding?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Henry J. Kaiser\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Henry J. Kaiser"
+            },
+            "sufficient": true,
+            "next_query": "Kaiser Ventures corporation was founded by an American industrialist who became known as the father of modern American shipbuilding?"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5a8a3e745542996c9b8d5e70",
+      "question": "What is the name for the adventure in \"Tunnels and Trolls\", a game designed by Ken St. Andre?",
+      "type": "bridge",
+      "level": "hard",
+      "gold_answer": "Arena of Khazan",
+      "gold_supporting_titles": [
+        "Arena of Khazan",
+        "Tunnels &amp; Trolls"
+      ],
+      "gold_multihop": true,
+      "baseline_answer": "The name for the adventure in \"Tunnels and Trolls\" is \"Crusaders of Khazan\". This is a computer adaptation of the tabletop role-playing game \"Tunnels and Trolls\" published by New World Computing in 1990.",
+      "agent_answer": "Crank Caverns",
+      "baseline_metrics": {
+        "em": 0.0,
+        "f1": 0.125
+      },
+      "agent_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_trace": {
+        "num_hops": 2,
+        "sub_queries": [
+          "What is the name for the adventure in \"Tunnels and Trolls\", a game designed by Ken St. Andre?",
+          "What is the name for the adventure in \"Tunnels and Trolls\", a game designed by Ken St. Andre?"
+        ],
+        "per_hop": [
+          {
+            "query": "What is the name for the adventure in \"Tunnels and Trolls\", a game designed by Ken St. Andre?",
+            "top_titles": [
+              "Crank Caverns",
+              "St",
+              "Mercenaries, Spies and Private Eyes",
+              "Tunnels &amp; Trolls",
+              "Tunnels &amp; Trolls: Crusaders of Khazan"
+            ]
+          },
+          {
+            "query": "What is the name for the adventure in \"Tunnels and Trolls\", a game designed by Ken St. Andre?",
+            "top_titles": [
+              "Crank Caverns",
+              "St",
+              "Mercenaries, Spies and Private Eyes",
+              "Tunnels &amp; Trolls",
+              "Tunnels &amp; Trolls: Crusaders of Khazan"
+            ]
+          }
+        ],
+        "hop_decisions": [
+          {
+            "hop": 1,
+            "query": "What is the name for the adventure in \"Tunnels and Trolls\", a game designed by Ken St. Andre?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Crack Caverns\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Crack Caverns"
+            },
+            "sufficient": true,
+            "next_query": "What is the name for the adventure in \"Tunnels and Trolls\", a game designed by Ken St. Andre?"
+          },
+          {
+            "hop": 2,
+            "query": "What is the name for the adventure in \"Tunnels and Trolls\", a game designed by Ken St. Andre?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Crank Caverns\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Crank Caverns"
+            },
+            "sufficient": true,
+            "next_query": "What is the name for the adventure in \"Tunnels and Trolls\", a game designed by Ken St. Andre?"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5ac23ff0554299636651994d",
+      "question": "When was Poison's album \"Shut Up, Make Love\" released?",
+      "type": "bridge",
+      "level": "hard",
+      "gold_answer": "2000",
+      "gold_supporting_titles": [
+        "Poison (American band)",
+        "Shut Up, Make Love"
+      ],
+      "gold_multihop": true,
+      "baseline_answer": "Poison's album \"Shut Up, Make Love\" was released in 2000. According to the context provided, it was the first single from their album \"Crack a Smile... and More!\" which was released on March 14, 2000.",
+      "agent_answer": "Poison's album 'Shut Up, Make Love' was released on March 14, 2000.",
+      "baseline_metrics": {
+        "em": 0.0,
+        "f1": 0.06060606060606061
+      },
+      "agent_metrics": {
+        "em": 0.0,
+        "f1": 0.15384615384615385
+      },
+      "agent_trace": {
+        "num_hops": 2,
+        "sub_queries": [
+          "When was Poison's album \"Shut Up, Make Love\" released?",
+          "When was Poison's album \"Shut Up, Make Love\" released?"
+        ],
+        "per_hop": [
+          {
+            "query": "When was Poison's album \"Shut Up, Make Love\" released?",
+            "top_titles": [
+              "Shut Up, Make Love",
+              "Chuck Berry on Stage",
+              "Make Love",
+              "Be the One (Poison song)",
+              "The Longer We Make Love"
+            ]
+          },
+          {
+            "query": "When was Poison's album \"Shut Up, Make Love\" released?",
+            "top_titles": [
+              "Shut Up, Make Love",
+              "Chuck Berry on Stage",
+              "Make Love",
+              "Be the One (Poison song)",
+              "The Longer We Make Love"
+            ]
+          }
+        ],
+        "hop_decisions": [
+          {
+            "hop": 1,
+            "query": "When was Poison's album \"Shut Up, Make Love\" released?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Poison's album 'Shut Up, Make Love' was released on March 14, 2000.\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Poison's album 'Shut Up, Make Love' was released on March 14, 2000."
+            },
+            "sufficient": true,
+            "next_query": "When was Poison's album \"Shut Up, Make Love\" released?"
+          },
+          {
+            "hop": 2,
+            "query": "When was Poison's album \"Shut Up, Make Love\" released?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Poison's album 'Shut Up, Make Love' was released on March 14, 2000.\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Poison's album 'Shut Up, Make Love' was released on March 14, 2000."
+            },
+            "sufficient": true,
+            "next_query": "When was Poison's album \"Shut Up, Make Love\" released?"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5ae4a3265542995ad6573de5",
+      "question": "Hayden is a singer-songwriter from Canada, but where does Buck-Tick hail from?",
+      "type": "comparison",
+      "level": "hard",
+      "gold_answer": "Fujioka, Gunma",
+      "gold_supporting_titles": [
+        "Buck-Tick",
+        "Hayden (musician)"
+      ],
+      "gold_multihop": true,
+      "baseline_answer": "Buck-Tick is a Japanese band, not from Canada. They are a Japanese rock band.",
+      "agent_answer": "Buck-Tick hails from Alberta, Canada.",
+      "baseline_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_trace": {
+        "num_hops": 2,
+        "sub_queries": [
+          "Hayden is a singer-songwriter from Canada, but where does Buck-Tick hail from?",
+          "Hayden is a singer-songwriter from Canada, but where does Buck-Tick hail from?"
+        ],
+        "per_hop": [
+          {
+            "query": "Hayden is a singer-songwriter from Canada, but where does Buck-Tick hail from?",
+            "top_titles": [
+              "Hailstorm Alley",
+              "Mild and Hazy",
+              "Atsushi Sakurai",
+              "Kyo (musician)",
+              "Hayden (musician)"
+            ]
+          },
+          {
+            "query": "Hayden is a singer-songwriter from Canada, but where does Buck-Tick hail from?",
+            "top_titles": [
+              "Hailstorm Alley",
+              "Mild and Hazy",
+              "Atsushi Sakurai",
+              "Kyo (musician)",
+              "Hayden (musician)"
+            ]
+          }
+        ],
+        "hop_decisions": [
+          {
+            "hop": 1,
+            "query": "Hayden is a singer-songwriter from Canada, but where does Buck-Tick hail from?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Buck-Tick hails from Japan.\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Buck-Tick hails from Japan."
+            },
+            "sufficient": true,
+            "next_query": "Hayden is a singer-songwriter from Canada, but where does Buck-Tick hail from?"
+          },
+          {
+            "hop": 2,
+            "query": "Hayden is a singer-songwriter from Canada, but where does Buck-Tick hail from?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Buck-Tick hails from Alberta, Canada.\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Buck-Tick hails from Alberta, Canada."
+            },
+            "sufficient": true,
+            "next_query": "Hayden is a singer-songwriter from Canada, but where does Buck-Tick hail from?"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5ae0361155429925eb1afc2c",
+      "question": "Which  French ace pilot and adventurer fly L'Oiseau Blanc",
+      "type": "bridge",
+      "level": "hard",
+      "gold_answer": "Charles Eug\u00e8ne",
+      "gold_supporting_titles": [
+        "Charles Nungesser",
+        "L'Oiseau Blanc"
+      ],
+      "gold_multihop": true,
+      "baseline_answer": "Charles Nungesser and Fran\u00e7ois Coli flew L'Oiseau Blanc.",
+      "agent_answer": "Charles Nungesser",
+      "baseline_metrics": {
+        "em": 0.0,
+        "f1": 0.2
+      },
+      "agent_metrics": {
+        "em": 0.0,
+        "f1": 0.5
+      },
+      "agent_trace": {
+        "num_hops": 2,
+        "sub_queries": [
+          "Which  French ace pilot and adventurer fly L'Oiseau Blanc",
+          "Which  French ace pilot and adventurer fly L'Oiseau Blanc"
+        ],
+        "per_hop": [
+          {
+            "query": "Which  French ace pilot and adventurer fly L'Oiseau Blanc",
+            "top_titles": [
+              "L'Oiseau bleu (Metzinger)",
+              "Wooster and Davis",
+              "L'Oiseau Blanc",
+              "Gervais Raoul Lufbery",
+              "Paul Sauvage (aviator)"
+            ]
+          },
+          {
+            "query": "Which  French ace pilot and adventurer fly L'Oiseau Blanc",
+            "top_titles": [
+              "L'Oiseau bleu (Metzinger)",
+              "Wooster and Davis",
+              "L'Oiseau Blanc",
+              "Gervais Raoul Lufbery",
+              "Paul Sauvage (aviator)"
+            ]
+          }
+        ],
+        "hop_decisions": [
+          {
+            "hop": 1,
+            "query": "Which  French ace pilot and adventurer fly L'Oiseau Blanc",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Charles Nungesser\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Charles Nungesser"
+            },
+            "sufficient": true,
+            "next_query": "Which  French ace pilot and adventurer fly L'Oiseau Blanc"
+          },
+          {
+            "hop": 2,
+            "query": "Which  French ace pilot and adventurer fly L'Oiseau Blanc",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Charles Nungesser\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Charles Nungesser"
+            },
+            "sufficient": true,
+            "next_query": "Which  French ace pilot and adventurer fly L'Oiseau Blanc"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5abc0a5d5542993f40c73c64",
+      "question": "Are Freakonomics and In the Realm of the Hackers both American documentaries?",
+      "type": "comparison",
+      "level": "hard",
+      "gold_answer": "no",
+      "gold_supporting_titles": [
+        "Freakonomics (film)",
+        "In the Realm of the Hackers"
+      ],
+      "gold_multihop": true,
+      "baseline_answer": "No, these two documentaries are not both American. \n\n\"In the Realm of the Hackers\" is an Australian documentary, while \"Freakonomics\" is a documentary produced by Heidi Ewing, but it is not set in the realm of hacking or cybercrime.",
+      "agent_answer": "No, Freakonomics is not an American documentary. It is a non-fiction book written by Steven D. Levitt and Stephen J. Dubner. On the other hand, 'In the Realm of the Hackers' is an Australian documentary film.",
+      "baseline_metrics": {
+        "em": 0.0,
+        "f1": 0.05714285714285715
+      },
+      "agent_metrics": {
+        "em": 0.0,
+        "f1": 0.06451612903225806
+      },
+      "agent_trace": {
+        "num_hops": 2,
+        "sub_queries": [
+          "Are Freakonomics and In the Realm of the Hackers both American documentaries?",
+          "Are Freakonomics and In the Realm of the Hackers both American documentaries?"
+        ],
+        "per_hop": [
+          {
+            "query": "Are Freakonomics and In the Realm of the Hackers both American documentaries?",
+            "top_titles": [
+              "Silene menziesii",
+              "In the Realm of the Hackers",
+              "Heidi Ewing",
+              "Shayne Workman",
+              "Hackers (film)"
+            ]
+          },
+          {
+            "query": "Are Freakonomics and In the Realm of the Hackers both American documentaries?",
+            "top_titles": [
+              "Silene menziesii",
+              "In the Realm of the Hackers",
+              "Heidi Ewing",
+              "Shayne Workman",
+              "Hackers (film)"
+            ]
+          }
+        ],
+        "hop_decisions": [
+          {
+            "hop": 1,
+            "query": "Are Freakonomics and In the Realm of the Hackers both American documentaries?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"No, Freakonomics and In the Realm of the Hackers are not both American documentaries. In the Realm of the Hackers is an Australian documentary, while Freakonomics is a non-documentary book series.\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "No, Freakonomics and In the Realm of the Hackers are not both American documentaries. In the Realm of the Hackers is an Australian documentary, while Freakonomics is a non-documentary book series."
+            },
+            "sufficient": true,
+            "next_query": "Are Freakonomics and In the Realm of the Hackers both American documentaries?"
+          },
+          {
+            "hop": 2,
+            "query": "Are Freakonomics and In the Realm of the Hackers both American documentaries?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"No, Freakonomics is not an American documentary. It is a non-fiction book written by Steven D. Levitt and Stephen J. Dubner. On the other hand, 'In the Realm of the Hackers' is an Australian documentary film.\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "No, Freakonomics is not an American documentary. It is a non-fiction book written by Steven D. Levitt and Stephen J. Dubner. On the other hand, 'In the Realm of the Hackers' is an Australian documentary film."
+            },
+            "sufficient": true,
+            "next_query": "Are Freakonomics and In the Realm of the Hackers both American documentaries?"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5a7cc50e554299452d57ba3e",
+      "question": "Which band, Letters to Cleo or Screaming Trees, had more members?",
+      "type": "comparison",
+      "level": "hard",
+      "gold_answer": "Letters to Cleo",
+      "gold_supporting_titles": [
+        "Letters to Cleo",
+        "Screaming Trees"
+      ],
+      "gold_multihop": true,
+      "baseline_answer": "Screaming Trees had more members than Letters to Cleo. Screaming Trees consisted of 7 members, while Letters to Cleo had 6 members.",
+      "agent_answer": "Screaming Trees",
+      "baseline_metrics": {
+        "em": 0.0,
+        "f1": 0.24000000000000002
+      },
+      "agent_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_trace": {
+        "num_hops": 2,
+        "sub_queries": [
+          "Which band, Letters to Cleo or Screaming Trees, had more members?",
+          "Which band, Letters to Cleo or Screaming Trees, had more members?"
+        ],
+        "per_hop": [
+          {
+            "query": "Which band, Letters to Cleo or Screaming Trees, had more members?",
+            "top_titles": [
+              "Screaming Trees",
+              "Mad Season (band)",
+              "Jamboree (Beat Happening album)",
+              "Letters to Cleo",
+              "Screaming Trees discography"
+            ]
+          },
+          {
+            "query": "Which band, Letters to Cleo or Screaming Trees, had more members?",
+            "top_titles": [
+              "Screaming Trees",
+              "Mad Season (band)",
+              "Jamboree (Beat Happening album)",
+              "Letters to Cleo",
+              "Screaming Trees discography"
+            ]
+          }
+        ],
+        "hop_decisions": [
+          {
+            "hop": 1,
+            "query": "Which band, Letters to Cleo or Screaming Trees, had more members?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Screaming Trees\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Screaming Trees"
+            },
+            "sufficient": true,
+            "next_query": "Which band, Letters to Cleo or Screaming Trees, had more members?"
+          },
+          {
+            "hop": 2,
+            "query": "Which band, Letters to Cleo or Screaming Trees, had more members?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Screaming Trees\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Screaming Trees"
+            },
+            "sufficient": true,
+            "next_query": "Which band, Letters to Cleo or Screaming Trees, had more members?"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5abf63f15542997ec76fd3ea",
+      "question": "Alexander Kerensky was defeated and destroyed by the Bolsheviks in the course of a civil war that ended when ?",
+      "type": "bridge",
+      "level": "hard",
+      "gold_answer": "October 1922",
+      "gold_supporting_titles": [
+        "Russian Civil War",
+        "Socialist Revolutionary Party"
+      ],
+      "gold_multihop": true,
+      "baseline_answer": "The civil war that Alexander Kerensky was defeated and destroyed by the Bolsheviks in ended in 1923.",
+      "agent_answer": "The civil war ended in 1923.",
+      "baseline_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_trace": {
+        "num_hops": 2,
+        "sub_queries": [
+          "Alexander Kerensky was defeated and destroyed by the Bolsheviks in the course of a civil war that ended when ?",
+          "Alexander Kerensky was defeated and destroyed by the Bolsheviks in the course of a civil war that ended when ?"
+        ],
+        "per_hop": [
+          {
+            "query": "Alexander Kerensky was defeated and destroyed by the Bolsheviks in the course of a civil war that ended when ?",
+            "top_titles": [
+              "Russian Civil War",
+              "Socialist Revolutionary Party",
+              "Louise Bryant",
+              "Alexander Kerensky",
+              "Communism in Russia"
+            ]
+          },
+          {
+            "query": "Alexander Kerensky was defeated and destroyed by the Bolsheviks in the course of a civil war that ended when ?",
+            "top_titles": [
+              "Russian Civil War",
+              "Socialist Revolutionary Party",
+              "Louise Bryant",
+              "Alexander Kerensky",
+              "Communism in Russia"
+            ]
+          }
+        ],
+        "hop_decisions": [
+          {
+            "hop": 1,
+            "query": "Alexander Kerensky was defeated and destroyed by the Bolsheviks in the course of a civil war that ended when ?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"1923\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "1923"
+            },
+            "sufficient": true,
+            "next_query": "Alexander Kerensky was defeated and destroyed by the Bolsheviks in the course of a civil war that ended when ?"
+          },
+          {
+            "hop": 2,
+            "query": "Alexander Kerensky was defeated and destroyed by the Bolsheviks in the course of a civil war that ended when ?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"The civil war ended in 1923.\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "The civil war ended in 1923."
+            },
+            "sufficient": true,
+            "next_query": "Alexander Kerensky was defeated and destroyed by the Bolsheviks in the course of a civil war that ended when ?"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5a8ef2a75542995a26add583",
+      "question": "Seven Brief Lessons on Physics was written by an Italian physicist that has worked in France since what year?",
+      "type": "bridge",
+      "level": "hard",
+      "gold_answer": "2000",
+      "gold_supporting_titles": [
+        "Carlo Rovelli",
+        "Seven Brief Lessons on Physics"
+      ],
+      "gold_multihop": true,
+      "baseline_answer": "Seven Brief Lessons on Physics was written by Carlo Rovelli, an Italian theoretical physicist. According to the context provided, Carlo Rovelli has collaborated regularly with Italian newspapers since 2000, including France. Since the publication of the book in 2014, it can be inferred that Rovelli must have started collaborating with French newspapers around or after 2000. Therefore, Seven Brief Lessons on Physics was written by an Italian physicist that has worked in France since at least 2000.",
+      "agent_answer": "1978",
+      "baseline_metrics": {
+        "em": 0.0,
+        "f1": 0.0273972602739726
+      },
+      "agent_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_trace": {
+        "num_hops": 2,
+        "sub_queries": [
+          "Seven Brief Lessons on Physics was written by an Italian physicist that has worked in France since what year?",
+          "Seven Brief Lessons on Physics was written by an Italian physicist that has worked in France since what year?"
+        ],
+        "per_hop": [
+          {
+            "query": "Seven Brief Lessons on Physics was written by an Italian physicist that has worked in France since what year?",
+            "top_titles": [
+              "Claudio Pellegrini",
+              "First Italo-Ethiopian War",
+              "Seven Brief Lessons on Physics",
+              "Carlo Rovelli",
+              "Enrico Fermi"
+            ]
+          },
+          {
+            "query": "Seven Brief Lessons on Physics was written by an Italian physicist that has worked in France since what year?",
+            "top_titles": [
+              "Claudio Pellegrini",
+              "First Italo-Ethiopian War",
+              "Seven Brief Lessons on Physics",
+              "Carlo Rovelli",
+              "Enrico Fermi"
+            ]
+          }
+        ],
+        "hop_decisions": [
+          {
+            "hop": 1,
+            "query": "Seven Brief Lessons on Physics was written by an Italian physicist that has worked in France since what year?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"1978\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "1978"
+            },
+            "sufficient": true,
+            "next_query": "Seven Brief Lessons on Physics was written by an Italian physicist that has worked in France since what year?"
+          },
+          {
+            "hop": 2,
+            "query": "Seven Brief Lessons on Physics was written by an Italian physicist that has worked in France since what year?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"1978\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "1978"
+            },
+            "sufficient": true,
+            "next_query": "Seven Brief Lessons on Physics was written by an Italian physicist that has worked in France since what year?"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5a80721b554299485f5985ef",
+      "question": "The Livesey Hal War Memorial commemorates the fallen of which war, that had over 60 million casualties?",
+      "type": "bridge",
+      "level": "hard",
+      "gold_answer": "World War II",
+      "gold_supporting_titles": [
+        "Livesey Hall War Memorial",
+        "World War II casualties"
+      ],
+      "gold_multihop": true,
+      "baseline_answer": "The Livesey Hall War Memorial commemorates the fallen of World War I and World War II, which collectively had over 60 million casualties.",
+      "agent_answer": "World War II",
+      "baseline_metrics": {
+        "em": 0.0,
+        "f1": 0.25
+      },
+      "agent_metrics": {
+        "em": 1.0,
+        "f1": 1.0
+      },
+      "agent_trace": {
+        "num_hops": 2,
+        "sub_queries": [
+          "The Livesey Hal War Memorial commemorates the fallen of which war, that had over 60 million casualties?",
+          "The Livesey Hal War Memorial commemorates the fallen of which war, that had over 60 million casualties?"
+        ],
+        "per_hop": [
+          {
+            "query": "The Livesey Hal War Memorial commemorates the fallen of which war, that had over 60 million casualties?",
+            "top_titles": [
+              "Masni\u00e8res Newfoundland Memorial",
+              "World War II casualties",
+              "Portsmouth Naval Memorial",
+              "Livesey Hall War Memorial",
+              "Vietnam War Memorial, Hanoi"
+            ]
+          },
+          {
+            "query": "The Livesey Hal War Memorial commemorates the fallen of which war, that had over 60 million casualties?",
+            "top_titles": [
+              "Masni\u00e8res Newfoundland Memorial",
+              "World War II casualties",
+              "Portsmouth Naval Memorial",
+              "Livesey Hall War Memorial",
+              "Vietnam War Memorial, Hanoi"
+            ]
+          }
+        ],
+        "hop_decisions": [
+          {
+            "hop": 1,
+            "query": "The Livesey Hal War Memorial commemorates the fallen of which war, that had over 60 million casualties?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"World War II\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "World War II"
+            },
+            "sufficient": true,
+            "next_query": "The Livesey Hal War Memorial commemorates the fallen of which war, that had over 60 million casualties?"
+          },
+          {
+            "hop": 2,
+            "query": "The Livesey Hal War Memorial commemorates the fallen of which war, that had over 60 million casualties?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"World War II\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "World War II"
+            },
+            "sufficient": true,
+            "next_query": "The Livesey Hal War Memorial commemorates the fallen of which war, that had over 60 million casualties?"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5ab51dae5542991779162d82",
+      "question": "Are both Elko Regional Airport and Gerald R. Ford International Airport located in Michigan?",
+      "type": "comparison",
+      "level": "hard",
+      "gold_answer": "no",
+      "gold_supporting_titles": [
+        "Elko Regional Airport",
+        "Gerald R. Ford International Airport"
+      ],
+      "gold_multihop": true,
+      "baseline_answer": "No, neither Elko Regional Airport nor Gerald R. Ford International Airport are located in Michigan. Elko Regional Airport is located in Nevada, while Gerald R. Ford Presidential Library (not airport) is located in Michigan, specifically in Ann Arbor, Michigan.",
+      "agent_answer": "No, Elko Regional Airport is not located in Michigan. However, Gerald R. Ford International Airport is located in Michigan.",
+      "baseline_metrics": {
+        "em": 0.0,
+        "f1": 0.05
+      },
+      "agent_metrics": {
+        "em": 0.0,
+        "f1": 0.1
+      },
+      "agent_trace": {
+        "num_hops": 2,
+        "sub_queries": [
+          "Are both Elko Regional Airport and Gerald R. Ford International Airport located in Michigan?",
+          "Are both Elko Regional Airport and Gerald R. Ford International Airport located in Michigan?"
+        ],
+        "per_hop": [
+          {
+            "query": "Are both Elko Regional Airport and Gerald R. Ford International Airport located in Michigan?",
+            "top_titles": [
+              "Bishop International Airport",
+              "Grantley Adams International Airport",
+              "Pensacola International Airport",
+              "Gerald R",
+              "John Glenn Columbus International Airport"
+            ]
+          },
+          {
+            "query": "Are both Elko Regional Airport and Gerald R. Ford International Airport located in Michigan?",
+            "top_titles": [
+              "Bishop International Airport",
+              "Grantley Adams International Airport",
+              "Pensacola International Airport",
+              "Gerald R",
+              "John Glenn Columbus International Airport"
+            ]
+          }
+        ],
+        "hop_decisions": [
+          {
+            "hop": 1,
+            "query": "Are both Elko Regional Airport and Gerald R. Ford International Airport located in Michigan?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"No, Elko Regional Airport is not located in Michigan. However, Gerald R. Ford International Airport is indeed located in Michigan.\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "No, Elko Regional Airport is not located in Michigan. However, Gerald R. Ford International Airport is indeed located in Michigan."
+            },
+            "sufficient": true,
+            "next_query": "Are both Elko Regional Airport and Gerald R. Ford International Airport located in Michigan?"
+          },
+          {
+            "hop": 2,
+            "query": "Are both Elko Regional Airport and Gerald R. Ford International Airport located in Michigan?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"No, Elko Regional Airport is not located in Michigan. However, Gerald R. Ford International Airport is located in Michigan.\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "No, Elko Regional Airport is not located in Michigan. However, Gerald R. Ford International Airport is located in Michigan."
+            },
+            "sufficient": true,
+            "next_query": "Are both Elko Regional Airport and Gerald R. Ford International Airport located in Michigan?"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5a7571135542992d0ec05f98",
+      "question": "Ralph Hefferline was a psychology professor at a university that is located in what city?",
+      "type": "bridge",
+      "level": "hard",
+      "gold_answer": "New York City",
+      "gold_supporting_titles": [
+        "Columbia University",
+        "Ralph Hefferline"
+      ],
+      "gold_multihop": true,
+      "baseline_answer": "There is no information provided about a person named Ralph Hefferline or any university he may have been affiliated with in the given context. Therefore, based solely on the provided information, it is not possible to answer the question asked.",
+      "agent_answer": "Kansas City",
+      "baseline_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_metrics": {
+        "em": 0.0,
+        "f1": 0.4
+      },
+      "agent_trace": {
+        "num_hops": 2,
+        "sub_queries": [
+          "Ralph Hefferline was a psychology professor at a university that is located in what city?",
+          "Ralph Hefferline was a psychology professor at a university that is located in what city?"
+        ],
+        "per_hop": [
+          {
+            "query": "Ralph Hefferline was a psychology professor at a university that is located in what city?",
+            "top_titles": [
+              "University of Missouri\u2013Kansas City",
+              "Kimberly Young",
+              "Frank L",
+              "Princeton Neuroscience Institute",
+              "Abraham Maslow"
+            ]
+          },
+          {
+            "query": "Ralph Hefferline was a psychology professor at a university that is located in what city?",
+            "top_titles": [
+              "University of Missouri\u2013Kansas City",
+              "Kimberly Young",
+              "Frank L",
+              "Princeton Neuroscience Institute",
+              "Abraham Maslow"
+            ]
+          }
+        ],
+        "hop_decisions": [
+          {
+            "hop": 1,
+            "query": "Ralph Hefferline was a psychology professor at a university that is located in what city?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Kansas City\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Kansas City"
+            },
+            "sufficient": true,
+            "next_query": "Ralph Hefferline was a psychology professor at a university that is located in what city?"
+          },
+          {
+            "hop": 2,
+            "query": "Ralph Hefferline was a psychology professor at a university that is located in what city?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Kansas City\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Kansas City"
+            },
+            "sufficient": true,
+            "next_query": "Ralph Hefferline was a psychology professor at a university that is located in what city?"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5a7a0e1e5542990783324e1a",
+      "question": "Which dog's ancestors include Gordon and Irish Setters: the Manchester Terrier or the Scotch Collie?",
+      "type": "comparison",
+      "level": "hard",
+      "gold_answer": "Scotch Collie",
+      "gold_supporting_titles": [
+        "Manchester Terrier",
+        "Scotch Collie"
+      ],
+      "gold_multihop": true,
+      "baseline_answer": "Based on the information provided, neither the Manchester Terrier nor the Scotch Collie are specifically stated to have Gordon Setter and Irish Setter ancestors. The context about the Manchester Terrier mentions it has roots in the English Toy Terrier, which is now called the Manchester Terrier, and includes possible ancestors such as the Bull Terrier, Smooth Fox Terrier, etc. However, it does not mention the Gordon Setter or Irish Setter. Similarly, the Scotch Collie is described as a Scottish type of herding dog, but its ancestry is not linked to the Gordon Setter or Irish Setter. Therefore, based solely on the given context, we cannot determine which dog's ancestors include Gordon Setter and Irish Setters.",
+      "agent_answer": "The Manchester Terrier",
+      "baseline_metrics": {
+        "em": 0.0,
+        "f1": 0.038461538461538464
+      },
+      "agent_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_trace": {
+        "num_hops": 2,
+        "sub_queries": [
+          "Which dog's ancestors include Gordon and Irish Setters: the Manchester Terrier or the Scotch Collie?",
+          "Which dog's ancestors include Gordon and Irish Setters: the Manchester Terrier or the Scotch Collie?"
+        ],
+        "per_hop": [
+          {
+            "query": "Which dog's ancestors include Gordon and Irish Setters: the Manchester Terrier or the Scotch Collie?",
+            "top_titles": [
+              "Teddy Roosevelt Terrier",
+              "Viol",
+              "Collie",
+              "Russkiy Toy",
+              "Toy Manchester Terrier"
+            ]
+          },
+          {
+            "query": "Which dog's ancestors include Gordon and Irish Setters: the Manchester Terrier or the Scotch Collie?",
+            "top_titles": [
+              "Teddy Roosevelt Terrier",
+              "Viol",
+              "Collie",
+              "Russkiy Toy",
+              "Toy Manchester Terrier"
+            ]
+          }
+        ],
+        "hop_decisions": [
+          {
+            "hop": 1,
+            "query": "Which dog's ancestors include Gordon and Irish Setters: the Manchester Terrier or the Scotch Collie?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"The Manchester Terrier\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "The Manchester Terrier"
+            },
+            "sufficient": true,
+            "next_query": "Which dog's ancestors include Gordon and Irish Setters: the Manchester Terrier or the Scotch Collie?"
+          },
+          {
+            "hop": 2,
+            "query": "Which dog's ancestors include Gordon and Irish Setters: the Manchester Terrier or the Scotch Collie?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"The Manchester Terrier\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "The Manchester Terrier"
+            },
+            "sufficient": true,
+            "next_query": "Which dog's ancestors include Gordon and Irish Setters: the Manchester Terrier or the Scotch Collie?"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5a74106b55429979e288289e",
+      "question": "Where is the company that Sachin Warrier worked for as a software engineer headquartered? ",
+      "type": "bridge",
+      "level": "hard",
+      "gold_answer": "Mumbai",
+      "gold_supporting_titles": [
+        "Sachin Warrier",
+        "Tata Consultancy Services"
+      ],
+      "gold_multihop": true,
+      "baseline_answer": "The information provided does not specify the location of the company where Sachin Warrier worked as a software engineer. Therefore, based on the given context, we cannot determine if the company is headquartered anywhere or where it is located.",
+      "agent_answer": "Tata Consultancy Services",
+      "baseline_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_trace": {
+        "num_hops": 2,
+        "sub_queries": [
+          "Where is the company that Sachin Warrier worked for as a software engineer headquartered? ",
+          "Where is the company that Sachin Warrier worked for as a software engineer headquartered? "
+        ],
+        "per_hop": [
+          {
+            "query": "Where is the company that Sachin Warrier worked for as a software engineer headquartered? ",
+            "top_titles": [
+              "Gordon Johndroe",
+              "Sachin Warrier",
+              "Wes McKinney",
+              "Alec Muffett",
+              "Lead programmer"
+            ]
+          },
+          {
+            "query": "Where is the company that Sachin Warrier worked for as a software engineer headquartered? ",
+            "top_titles": [
+              "Gordon Johndroe",
+              "Sachin Warrier",
+              "Wes McKinney",
+              "Alec Muffett",
+              "Lead programmer"
+            ]
+          }
+        ],
+        "hop_decisions": [
+          {
+            "hop": 1,
+            "query": "Where is the company that Sachin Warrier worked for as a software engineer headquartered? ",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Tata Consultancy Services\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Tata Consultancy Services"
+            },
+            "sufficient": true,
+            "next_query": "Where is the company that Sachin Warrier worked for as a software engineer headquartered? "
+          },
+          {
+            "hop": 2,
+            "query": "Where is the company that Sachin Warrier worked for as a software engineer headquartered? ",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Tata Consultancy Services\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Tata Consultancy Services"
+            },
+            "sufficient": true,
+            "next_query": "Where is the company that Sachin Warrier worked for as a software engineer headquartered? "
+          }
+        ]
+      }
+    },
+    {
+      "id": "5a79311755429970f5fffe67",
+      "question": "A Japanese manga series based on a 16 year old high school student Ichitaka Seto, is written and illustrated by someone born in what year?",
+      "type": "bridge",
+      "level": "hard",
+      "gold_answer": "1962",
+      "gold_supporting_titles": [
+        "I&quot;s",
+        "Masakazu Katsura"
+      ],
+      "gold_multihop": true,
+      "baseline_answer": "Based on the information provided, the manga series \"I\"s\" (\u30a2\u30a4\u30ba, Aizu) is written and illustrated by Masakazu Katsura. However, the birth year of Masakazu Katsura is not specified in the given context. Therefore, we cannot determine the birth year of the person who wrote and illustrated \"I\"s\" based solely on the information provided.",
+      "agent_answer": "1992",
+      "baseline_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_trace": {
+        "num_hops": 2,
+        "sub_queries": [
+          "A Japanese manga series based on a 16 year old high school student Ichitaka Seto, is written and illustrated by someone born in what year?",
+          "A Japanese manga series based on a 16 year old high school student Ichitaka Seto, is written and illustrated by someone born in what year?"
+        ],
+        "per_hop": [
+          {
+            "query": "A Japanese manga series based on a 16 year old high school student Ichitaka Seto, is written and illustrated by someone born in what year?",
+            "top_titles": [
+              "Manga Bible (series)",
+              "My Bride is a Mermaid",
+              "The Prince of Tennis",
+              "I&quot;s",
+              "The Kindaichi Case Files"
+            ]
+          },
+          {
+            "query": "A Japanese manga series based on a 16 year old high school student Ichitaka Seto, is written and illustrated by someone born in what year?",
+            "top_titles": [
+              "Manga Bible (series)",
+              "My Bride is a Mermaid",
+              "The Prince of Tennis",
+              "I&quot;s",
+              "The Kindaichi Case Files"
+            ]
+          }
+        ],
+        "hop_decisions": [
+          {
+            "hop": 1,
+            "query": "A Japanese manga series based on a 16 year old high school student Ichitaka Seto, is written and illustrated by someone born in what year?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"1995\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "1995"
+            },
+            "sufficient": true,
+            "next_query": "A Japanese manga series based on a 16 year old high school student Ichitaka Seto, is written and illustrated by someone born in what year?"
+          },
+          {
+            "hop": 2,
+            "query": "A Japanese manga series based on a 16 year old high school student Ichitaka Seto, is written and illustrated by someone born in what year?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"1992\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "1992"
+            },
+            "sufficient": true,
+            "next_query": "A Japanese manga series based on a 16 year old high school student Ichitaka Seto, is written and illustrated by someone born in what year?"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5ab2d3df554299194fa9352c",
+      "question": "The battle in which Giuseppe Arimondi lost his life secured what for Ethiopia?",
+      "type": "bridge",
+      "level": "hard",
+      "gold_answer": "sovereignty",
+      "gold_supporting_titles": [
+        "Battle of Adwa",
+        "Giuseppe Arimondi"
+      ],
+      "gold_multihop": true,
+      "baseline_answer": "The Battle of Adwa secured independence for Ethiopia. Although the battle itself did not directly secure independence, the outcome of the Battle of Adwa, which saw Ethiopia defeat the Italian forces led by Giuseppe Arimondi, was followed by the signing of the Treaty of Addis Ababa. This treaty formally ended the First Italo-Ethiopian War on terms largely favorable to Ethiopia and recognized Ethiopia as an independent country.",
+      "agent_answer": "The battle in which Giuseppe Arimondi lost his life secured Ethiopian independence for Ethiopia.",
+      "baseline_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_trace": {
+        "num_hops": 2,
+        "sub_queries": [
+          "The battle in which Giuseppe Arimondi lost his life secured what for Ethiopia?",
+          "The battle in which Giuseppe Arimondi lost his life secured what for Ethiopia?"
+        ],
+        "per_hop": [
+          {
+            "query": "The battle in which Giuseppe Arimondi lost his life secured what for Ethiopia?",
+            "top_titles": [
+              "First Italo-Ethiopian War",
+              "Teatro Giuseppe Verdi",
+              "Giuseppe Verdi (film)",
+              "Ephigenia of Ethiopia",
+              "Treaty of Addis Ababa"
+            ]
+          },
+          {
+            "query": "The battle in which Giuseppe Arimondi lost his life secured what for Ethiopia?",
+            "top_titles": [
+              "First Italo-Ethiopian War",
+              "Teatro Giuseppe Verdi",
+              "Giuseppe Verdi (film)",
+              "Ephigenia of Ethiopia",
+              "Treaty of Addis Ababa"
+            ]
+          }
+        ],
+        "hop_decisions": [
+          {
+            "hop": 1,
+            "query": "The battle in which Giuseppe Arimondi lost his life secured what for Ethiopia?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"The battle in which Giuseppe Arimondi lost his life secured Ethiopian independence for Ethiopia.\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "The battle in which Giuseppe Arimondi lost his life secured Ethiopian independence for Ethiopia."
+            },
+            "sufficient": true,
+            "next_query": "The battle in which Giuseppe Arimondi lost his life secured what for Ethiopia?"
+          },
+          {
+            "hop": 2,
+            "query": "The battle in which Giuseppe Arimondi lost his life secured what for Ethiopia?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"The battle in which Giuseppe Arimondi lost his life secured Ethiopian independence for Ethiopia.\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "The battle in which Giuseppe Arimondi lost his life secured Ethiopian independence for Ethiopia."
+            },
+            "sufficient": true,
+            "next_query": "The battle in which Giuseppe Arimondi lost his life secured what for Ethiopia?"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5a760ab65542994ccc918697",
+      "question": "Alfred Balk served as the secretary of the Committee on the Employment of Minority Groups in the News Media under which United States Vice President?",
+      "type": "bridge",
+      "level": "hard",
+      "gold_answer": "Nelson Rockefeller",
+      "gold_supporting_titles": [
+        "Alfred Balk",
+        "Nelson Rockefeller"
+      ],
+      "gold_multihop": true,
+      "baseline_answer": "Based on the information provided, Alfred Balk served as the secretary of the Committee on the Employment of Minority Groups in the News Media under the United States Vice President Nelson Rockefeller. The relevant part of the text states: \"He [Balk] wrote and co-authored books on a variety of topics, ranging from the tax exempt status of religious organizations to globalization to the history of radio. He was also secretary of New York Governor Nelson Rockefeller's Committee on the Employment of Minority Groups in the News Media.\" Since Rockefeller was the governor of New York and therefore under the Vice Presidency of Gerald Ford, it can be inferred that Balk served under Ford. However, the exact question asked does not specify the Vice President, so the answer based on the given information is:\n\nNelson Rockefeller",
+      "agent_answer": "Gerald Ford",
+      "baseline_metrics": {
+        "em": 0.0,
+        "f1": 0.03389830508474576
+      },
+      "agent_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_trace": {
+        "num_hops": 2,
+        "sub_queries": [
+          "Alfred Balk served as the secretary of the Committee on the Employment of Minority Groups in the News Media under which United States Vice President?",
+          "Alfred Balk served as the secretary of the Committee on the Employment of Minority Groups in the News Media under which United States Vice President?"
+        ],
+        "per_hop": [
+          {
+            "query": "Alfred Balk served as the secretary of the Committee on the Employment of Minority Groups in the News Media under which United States Vice President?",
+            "top_titles": [
+              "Jim Lentz",
+              "President pro tempore of the United States Senate",
+              "Gerald Ford",
+              "Robert Hormats",
+              "Alfred Balk"
+            ]
+          },
+          {
+            "query": "Alfred Balk served as the secretary of the Committee on the Employment of Minority Groups in the News Media under which United States Vice President?",
+            "top_titles": [
+              "Jim Lentz",
+              "President pro tempore of the United States Senate",
+              "Gerald Ford",
+              "Robert Hormats",
+              "Alfred Balk"
+            ]
+          }
+        ],
+        "hop_decisions": [
+          {
+            "hop": 1,
+            "query": "Alfred Balk served as the secretary of the Committee on the Employment of Minority Groups in the News Media under which United States Vice President?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Nelson Rockefeller\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Nelson Rockefeller"
+            },
+            "sufficient": true,
+            "next_query": "Alfred Balk served as the secretary of the Committee on the Employment of Minority Groups in the News Media under which United States Vice President?"
+          },
+          {
+            "hop": 2,
+            "query": "Alfred Balk served as the secretary of the Committee on the Employment of Minority Groups in the News Media under which United States Vice President?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Gerald Ford\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Gerald Ford"
+            },
+            "sufficient": true,
+            "next_query": "Alfred Balk served as the secretary of the Committee on the Employment of Minority Groups in the News Media under which United States Vice President?"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5a7d54165542995f4f402256",
+      "question": "A medieval fortress in Dirleton, East Lothian, Scotland borders on the south side of what coastal area?",
+      "type": "bridge",
+      "level": "hard",
+      "gold_answer": "Yellowcraig",
+      "gold_supporting_titles": [
+        "Dirleton Castle",
+        "Yellowcraigs"
+      ],
+      "gold_multihop": true,
+      "baseline_answer": "Based on the provided context, there is no mention of a medieval fortress in Dirleton, East Lothian, Scotland. Therefore, the information requested cannot be answered with the given context. A correct answer would require additional details not present in the provided text.",
+      "agent_answer": "Yellowcraig",
+      "baseline_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_metrics": {
+        "em": 1.0,
+        "f1": 1.0
+      },
+      "agent_trace": {
+        "num_hops": 2,
+        "sub_queries": [
+          "A medieval fortress in Dirleton, East Lothian, Scotland borders on the south side of what coastal area?",
+          "A medieval fortress in Dirleton, East Lothian, Scotland borders on the south side of what coastal area?"
+        ],
+        "per_hop": [
+          {
+            "query": "A medieval fortress in Dirleton, East Lothian, Scotland borders on the south side of what coastal area?",
+            "top_titles": [
+              "Haddington, East Lothian",
+              "Yellowcraigs",
+              "Dirleton Kirk",
+              "Scottish Borders",
+              "St"
+            ]
+          },
+          {
+            "query": "A medieval fortress in Dirleton, East Lothian, Scotland borders on the south side of what coastal area?",
+            "top_titles": [
+              "Haddington, East Lothian",
+              "Yellowcraigs",
+              "Dirleton Kirk",
+              "Scottish Borders",
+              "St"
+            ]
+          }
+        ],
+        "hop_decisions": [
+          {
+            "hop": 1,
+            "query": "A medieval fortress in Dirleton, East Lothian, Scotland borders on the south side of what coastal area?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Yellowcraigs\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Yellowcraigs"
+            },
+            "sufficient": true,
+            "next_query": "A medieval fortress in Dirleton, East Lothian, Scotland borders on the south side of what coastal area?"
+          },
+          {
+            "hop": 2,
+            "query": "A medieval fortress in Dirleton, East Lothian, Scotland borders on the south side of what coastal area?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Yellowcraig\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Yellowcraig"
+            },
+            "sufficient": true,
+            "next_query": "A medieval fortress in Dirleton, East Lothian, Scotland borders on the south side of what coastal area?"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5ab859a955429934fafe6d7b",
+      "question": "Who is the writer of this song that was inspired by words on a tombstone and was the first track on the box set Back to Mono?",
+      "type": "bridge",
+      "level": "hard",
+      "gold_answer": "Phil Spector",
+      "gold_supporting_titles": [
+        "Back to Mono (1958\u20131969)",
+        "To Know Him Is to Love Him"
+      ],
+      "gold_multihop": true,
+      "baseline_answer": "The song \"To Know Him Is to Love Him\" was written by Phil Spector, who was inspired by words on his father's tombstone. It was the first track on the \"Back to Mono\" box set.",
+      "agent_answer": "Phil Spector",
+      "baseline_metrics": {
+        "em": 0.0,
+        "f1": 0.11764705882352941
+      },
+      "agent_metrics": {
+        "em": 1.0,
+        "f1": 1.0
+      },
+      "agent_trace": {
+        "num_hops": 2,
+        "sub_queries": [
+          "Who is the writer of this song that was inspired by words on a tombstone and was the first track on the box set Back to Mono?",
+          "Who is the writer of this song that was inspired by words on a tombstone and was the first track on the box set Back to Mono?"
+        ],
+        "per_hop": [
+          {
+            "query": "Who is the writer of this song that was inspired by words on a tombstone and was the first track on the box set Back to Mono?",
+            "top_titles": [
+              "Trash Box",
+              "Mono Masters",
+              "Nashville Rebel (box set)",
+              "The Doors: Vinyl Box Set",
+              "To Know Him Is to Love Him"
+            ]
+          },
+          {
+            "query": "Who is the writer of this song that was inspired by words on a tombstone and was the first track on the box set Back to Mono?",
+            "top_titles": [
+              "Trash Box",
+              "Mono Masters",
+              "Nashville Rebel (box set)",
+              "The Doors: Vinyl Box Set",
+              "To Know Him Is to Love Him"
+            ]
+          }
+        ],
+        "hop_decisions": [
+          {
+            "hop": 1,
+            "query": "Who is the writer of this song that was inspired by words on a tombstone and was the first track on the box set Back to Mono?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Phil Spector\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Phil Spector"
+            },
+            "sufficient": true,
+            "next_query": "Who is the writer of this song that was inspired by words on a tombstone and was the first track on the box set Back to Mono?"
+          },
+          {
+            "hop": 2,
+            "query": "Who is the writer of this song that was inspired by words on a tombstone and was the first track on the box set Back to Mono?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Phil Spector\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Phil Spector"
+            },
+            "sufficient": true,
+            "next_query": "Who is the writer of this song that was inspired by words on a tombstone and was the first track on the box set Back to Mono?"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5add61d65542995b365fab21",
+      "question": "What type of forum did a former Soviet statesman initiate?",
+      "type": "bridge",
+      "level": "hard",
+      "gold_answer": "Organizations could come together to address global issues",
+      "gold_supporting_titles": [
+        "Mikhail Gorbachev",
+        "World Summit of Nobel Peace Laureates"
+      ],
+      "gold_multihop": true,
+      "baseline_answer": "Based on the provided context, there is no mention of a specific forum being initiated by a former Soviet statesman. The text discusses various Soviet statesmen and their roles but does not mention any particular forum they initiated. Therefore, the question cannot be answered with the given information.",
+      "agent_answer": "A former Soviet statesman initiated a forum for promoting the renewal and development of Jewish life in the USSR and the emigration rights, human rights and resettlement needs of Jews in the Former Soviet Union.",
+      "baseline_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_trace": {
+        "num_hops": 2,
+        "sub_queries": [
+          "What type of forum did a former Soviet statesman initiate?",
+          "What type of forum did a former Soviet statesman initiate?"
+        ],
+        "per_hop": [
+          {
+            "query": "What type of forum did a former Soviet statesman initiate?",
+            "top_titles": [
+              "David Waksberg",
+              "Ephraim Sklyansky",
+              "Mikhail Gorbachev",
+              "Andrei Kirilenko (politician)",
+              "Nikolai Podgorny"
+            ]
+          },
+          {
+            "query": "What type of forum did a former Soviet statesman initiate?",
+            "top_titles": [
+              "David Waksberg",
+              "Ephraim Sklyansky",
+              "Mikhail Gorbachev",
+              "Andrei Kirilenko (politician)",
+              "Nikolai Podgorny"
+            ]
+          }
+        ],
+        "hop_decisions": [
+          {
+            "hop": 1,
+            "query": "What type of forum did a former Soviet statesman initiate?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"A former Soviet statesman initiated a forum for Soviet Jewry.\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "A former Soviet statesman initiated a forum for Soviet Jewry."
+            },
+            "sufficient": true,
+            "next_query": "What type of forum did a former Soviet statesman initiate?"
+          },
+          {
+            "hop": 2,
+            "query": "What type of forum did a former Soviet statesman initiate?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"A former Soviet statesman initiated a forum for promoting the renewal and development of Jewish life in the USSR and the emigration rights, human rights and resettlement needs of Jews in the Former Soviet Union.\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "A former Soviet statesman initiated a forum for promoting the renewal and development of Jewish life in the USSR and the emigration rights, human rights and resettlement needs of Jews in the Former Soviet Union."
+            },
+            "sufficient": true,
+            "next_query": "What type of forum did a former Soviet statesman initiate?"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5a8e068b5542995085b37384",
+      "question": "Are Ferocactus and Silene both types of plant?",
+      "type": "comparison",
+      "level": "hard",
+      "gold_answer": "yes",
+      "gold_supporting_titles": [
+        "Ferocactus",
+        "Silene"
+      ],
+      "gold_multihop": true,
+      "baseline_answer": "No, Ferocactus is not a type of plant. Ferocactus is actually a genus of cacti in the Cactaceae family. In contrast, Silene is a genus of flowering plants in the pink family (Caryophyllaceae).",
+      "agent_answer": "Yes, Ferocactus and Silene are both types of plants.",
+      "baseline_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_metrics": {
+        "em": 0.0,
+        "f1": 0.19999999999999998
+      },
+      "agent_trace": {
+        "num_hops": 2,
+        "sub_queries": [
+          "Are Ferocactus and Silene both types of plant?",
+          "Are Ferocactus and Silene both types of plant?"
+        ],
+        "per_hop": [
+          {
+            "query": "Are Ferocactus and Silene both types of plant?",
+            "top_titles": [
+              "Silene menziesii",
+              "Collie",
+              "Silene suksdorfii",
+              "Sex determination in Silene",
+              "Silene conoidea"
+            ]
+          },
+          {
+            "query": "Are Ferocactus and Silene both types of plant?",
+            "top_titles": [
+              "Silene menziesii",
+              "Collie",
+              "Silene suksdorfii",
+              "Sex determination in Silene",
+              "Silene conoidea"
+            ]
+          }
+        ],
+        "hop_decisions": [
+          {
+            "hop": 1,
+            "query": "Are Ferocactus and Silene both types of plant?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Yes, Ferocactus and Silene are both types of plants.\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Yes, Ferocactus and Silene are both types of plants."
+            },
+            "sufficient": true,
+            "next_query": "Are Ferocactus and Silene both types of plant?"
+          },
+          {
+            "hop": 2,
+            "query": "Are Ferocactus and Silene both types of plant?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Yes, Ferocactus and Silene are both types of plants.\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Yes, Ferocactus and Silene are both types of plants."
+            },
+            "sufficient": true,
+            "next_query": "Are Ferocactus and Silene both types of plant?"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5abbf698554299114383a0b5",
+      "question": "Which British first-generation jet-powered medium bomber was used in the South West Pacific theatre of World War II?",
+      "type": "bridge",
+      "level": "hard",
+      "gold_answer": "English Electric Canberra",
+      "gold_supporting_titles": [
+        "English Electric Canberra",
+        "No. 2 Squadron RAAF"
+      ],
+      "gold_multihop": true,
+      "baseline_answer": "The English Electric Canberra was used in the South West Pacific theatre of World War II by No. 2 Squadron RAAF.",
+      "agent_answer": "Vickers Wellington",
+      "baseline_metrics": {
+        "em": 0.0,
+        "f1": 0.2727272727272727
+      },
+      "agent_metrics": {
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "agent_trace": {
+        "num_hops": 2,
+        "sub_queries": [
+          "Which British first-generation jet-powered medium bomber was used in the South West Pacific theatre of World War II?",
+          "Which British first-generation jet-powered medium bomber was used in the South West Pacific theatre of World War II?"
+        ],
+        "per_hop": [
+          {
+            "query": "Which British first-generation jet-powered medium bomber was used in the South West Pacific theatre of World War II?",
+            "top_titles": [
+              "No",
+              "Asiatic-Pacific Theater",
+              "Edwin A",
+              "South West Pacific Area (command)",
+              "South West Pacific theatre of World War II"
+            ]
+          },
+          {
+            "query": "Which British first-generation jet-powered medium bomber was used in the South West Pacific theatre of World War II?",
+            "top_titles": [
+              "No",
+              "Asiatic-Pacific Theater",
+              "Edwin A",
+              "South West Pacific Area (command)",
+              "South West Pacific theatre of World War II"
+            ]
+          }
+        ],
+        "hop_decisions": [
+          {
+            "hop": 1,
+            "query": "Which British first-generation jet-powered medium bomber was used in the South West Pacific theatre of World War II?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"The British first-generation jet-powered medium bomber used in the South West Pacific theatre of World War II was the English Electric Canberra.\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "The British first-generation jet-powered medium bomber used in the South West Pacific theatre of World War II was the English Electric Canberra."
+            },
+            "sufficient": true,
+            "next_query": "Which British first-generation jet-powered medium bomber was used in the South West Pacific theatre of World War II?"
+          },
+          {
+            "hop": 2,
+            "query": "Which British first-generation jet-powered medium bomber was used in the South West Pacific theatre of World War II?",
+            "raw_llm_response": "{\"sub_query\": \"\", \"sufficient\": true, \"final_answer\": \"Vickers Wellington\"}",
+            "decision": {
+              "sub_query": "",
+              "sufficient": true,
+              "final_answer": "Vickers Wellington"
+            },
+            "sufficient": true,
+            "next_query": "Which British first-generation jet-powered medium bomber was used in the South West Pacific theatre of World War II?"
+          }
+        ]
+      }
+    }
+  ]
+}
