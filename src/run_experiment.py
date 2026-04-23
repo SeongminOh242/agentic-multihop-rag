@@ -162,7 +162,8 @@ def _write_multihop_report(rows: list[dict[str, Any]], out_path: Path) -> None:
 def _baseline_answer_with_fallback(baseline: StaticRAG, question: str) -> dict[str, Any]:
     try:
         return baseline.answer(question)
-    except Exception:
+    except Exception as exc:
+        print(f"[baseline fallback] {type(exc).__name__}: {exc}")
         reranked_docs = _fallback_docs(baseline, question)
         context = "\n\n".join(document["text"] for document in reranked_docs)
         return {
@@ -176,7 +177,8 @@ def _baseline_answer_with_fallback(baseline: StaticRAG, question: str) -> dict[s
 def _agent_answer_with_fallback(agent: AgenticRAG, question: str) -> dict[str, Any]:
     try:
         return agent.answer(question)
-    except Exception:
+    except Exception as exc:
+        print(f"[agent fallback] {type(exc).__name__}: {exc}")
         reranked_docs = _fallback_docs(agent, question)
         return {
             "answer": reranked_docs[0]["text"] if reranked_docs else "",
