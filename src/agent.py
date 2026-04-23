@@ -28,18 +28,26 @@ OR
 
 
 class AgenticRAG:
-    def __init__(self, corpus: list[str], top_k: int = 5, max_hops: int = 4, min_hops: int = 2):
+    def __init__(
+        self,
+        corpus: list[str],
+        top_k: int = 5,
+        max_hops: int = 4,
+        min_hops: int = 2,
+        model_name: str = "gpt-4o-mini",
+    ):
         self.retriever = BM25Retriever(corpus)
         self.reranker = CrossEncoderReranker()
         self.top_k = top_k
         self.max_hops = max_hops
         self.min_hops = min_hops
+        self.model_name = model_name
         self.client = self._build_client()
 
     def _call_llm(self, prompt: str) -> str:
         if self.client is not None:
             response = self.client.chat.completions.create(
-                model="gpt-4o-mini",
+                model=self.model_name,
                 messages=[{"role": "user", "content": prompt}],
                 temperature=0,
             )
@@ -52,6 +60,7 @@ class AgenticRAG:
         accumulated_context: list[str] = []
         all_retrieved_docs: list[dict] = []
         per_hop_docs: list[dict] = []
+        hop_decisions: list[dict[str, Any]] = []
         sub_queries: list[str] = [question]
         current_query = question
 
@@ -85,6 +94,17 @@ class AgenticRAG:
                 hop >= self.min_hops and next_query.strip() == current_query.strip()
             )
 
+            hop_decisions.append(
+                {
+                    "hop": hop,
+                    "query": current_query,
+                    "raw_llm_response": raw_response,
+                    "decision": decision,
+                    "sufficient": bool(sufficient),
+                    "next_query": next_query,
+                }
+            )
+
             if sufficient and hop >= self.min_hops:
                 final_answer = decision.get("final_answer", "")
                 if not final_answer:
@@ -98,6 +118,7 @@ class AgenticRAG:
                     "num_hops": hop,
                     "retrieved_docs": all_retrieved_docs,
                     "per_hop_docs": per_hop_docs,
+                    "hop_decisions": hop_decisions,
                     "sub_queries": sub_queries,
                 }
 
@@ -116,6 +137,7 @@ class AgenticRAG:
             "num_hops": self.max_hops,
             "retrieved_docs": all_retrieved_docs,
             "per_hop_docs": per_hop_docs,
+            "hop_decisions": hop_decisions,
             "sub_queries": sub_queries,
         }
 
