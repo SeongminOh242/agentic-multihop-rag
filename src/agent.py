@@ -33,7 +33,7 @@ class AgenticRAG:
         corpus: list[str],
         top_k: int = 5,
         max_hops: int = 4,
-        min_hops: int = 2,
+        min_hops: int = 1,
         model_name: str = "gpt-4o-mini",
     ):
         self.retriever = BM25Retriever(corpus)
