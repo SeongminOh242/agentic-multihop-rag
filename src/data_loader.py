@@ -1,9 +1,18 @@
 from __future__ import annotations
 
+import os
 from collections.abc import Mapping, Sequence
 from typing import Any
 
 from .types import CorpusDocument, HotpotExample, SupportingFact
+
+
+def ensure_hf_hub_env() -> None:
+    """So `datasets` / `huggingface_hub` see the same token as `huggingface_hub.login`."""
+    token = os.getenv("HF_TOKEN") or os.getenv("HUGGING_FACE_HUB_TOKEN")
+    if token:
+        os.environ["HF_TOKEN"] = token
+        os.environ["HUGGING_FACE_HUB_TOKEN"] = token
 
 
 def _load_dataset(
@@ -11,6 +20,7 @@ def _load_dataset(
     subset: str,
     split: str,
 ):
+    ensure_hf_hub_env()
     try:
         from datasets import load_dataset
     except ImportError as exc:  # pragma: no cover - depends on local environment

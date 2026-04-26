@@ -42,6 +42,8 @@ def test_agent_result_has_required_fields():
     assert "retrieved_docs" in result
     assert "per_hop_docs" in result
     assert "sub_queries" in result
+    assert "hop_traces" in result
+    assert result["hop_traces"][0]["decision"]["final_answer"] == "Baden-Württemberg"
 
 
 def test_agent_handles_malformed_llm_json():
@@ -57,4 +59,4 @@ def test_agent_returns_final_answer_on_sufficient():
     with patch.object(agent, "_call_llm", return_value='{"sufficient": true, "final_answer": "Baden-Württemberg"}'):
         result = agent.answer("What state is Ulm in?")
     assert result["answer"] == "Baden-Württemberg"
-    assert result["num_hops"] == 1
+    assert result["num_hops"] == 2

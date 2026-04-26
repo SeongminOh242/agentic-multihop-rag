@@ -65,6 +65,7 @@ class BM25Retriever:
                 "text": self.corpus[index],
                 "score": float(scores[index]),
                 "doc_id": index,
+                "title": self._infer_title(self.corpus[index]),
             }
             for index in top_indices
         ]
@@ -90,3 +91,9 @@ class BM25Retriever:
     @staticmethod
     def _tokenize(text: str) -> list[str]:
         return [token.lower() for token in _TOKEN_PATTERN.findall(text)]
+
+    @staticmethod
+    def _infer_title(text: str) -> str:
+        if "." not in text:
+            return text[:80].strip()
+        return text.split(".", 1)[0].strip()
