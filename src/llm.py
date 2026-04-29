@@ -1,14 +1,12 @@
 from __future__ import annotations
 
-import os
-
 _cached_llm: HFLocalLLM | None = None
 
 
 class HFLocalLLM:
     """Llama-3.1-8B-Instruct. Uses 4-bit NF4 on CUDA, float16 on MPS/CPU."""
 
-    def __init__(self, model_name: str):
+    def __init__(self, model_name: str = "meta-llama/Meta-Llama-3.1-8B-Instruct"):
         self.model_name = model_name
         self._pipeline = None
         self._load()
@@ -50,12 +48,9 @@ class HFLocalLLM:
         return output[0]["generated_text"][-1]["content"].strip()
 
 
-def get_llm(model_name: str = "Qwen/Qwen2.5-3B-Instruct") -> HFLocalLLM:
+def get_llm(model_name: str = "meta-llama/Meta-Llama-3.1-8B-Instruct") -> HFLocalLLM:
     """Return a cached HFLocalLLM instance (loaded once, shared across pipelines)."""
     global _cached_llm
     if _cached_llm is None:
-        # Default to an ungated instruct model to work on clusters without HF auth.
-        # Override with HF_MODEL_NAME if you have a preferred local model.
-        chosen = os.getenv("HF_MODEL_NAME") or model_name or "Qwen/Qwen2.5-3B-Instruct"
-        _cached_llm = HFLocalLLM(chosen)
+        _cached_llm = HFLocalLLM(model_name)
     return _cached_llm
