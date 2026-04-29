@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "num_samples": 50,
+    "baseline_provider": "hf",
+    "baseline_model_name": "meta-llama/Meta-Llama-3.1-8B-Instruct",
+    "agent_provider": "hf",
+    "agent_model_name": "meta-llama/Meta-Llama-3.1-8B-Instruct",
+    "frontier_provider": "gemini",
+    "frontier_model_name": "gemini-2.5-flash",
+    "frontier_num_samples": 50,
+    "frontier_completed_samples": 50
+  },
+  "baseline": {
+    "EM": 0.32,
+    "F1": 0.42114285714285715,
+    "MRR": 0.31366666666666665,
+    "NDCG@10": 0.38799738340253226,
+    "avg_hops": 1.0
+  },
+  "agentic": {
+    "EM": 0.22,
+    "F1": 0.38799999999999996,
+    "MRR": 0.3538407703407703,
+    "NDCG@10": 0.4656642840697983,
+    "avg_hops": 3.46,
+    "per_hop_MRR": 0.4550277777777778,
+    "per_hop_NDCG@10": 0.5219341103191211
+  },
+  "frontier_agentic": {
+    "EM": 0.36,
+    "F1": 0.5105079365079365,
+    "MRR": 0.3596991341991342,
+    "NDCG@10": 0.48287668236114023,
+    "avg_hops": 2.94,
+    "per_hop_MRR": 0.4937222222222222,
+    "per_hop_NDCG@10": 0.5716141182463583
+  }
+}

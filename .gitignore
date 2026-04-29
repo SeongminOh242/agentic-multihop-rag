@@ -5,3 +5,5 @@ __pycache__/
 .DS_Store
 results/*.json
 !results/experiment_results.json
+!results/Oh_experiment_results.json
+!results/Oh_experiment_details.json
