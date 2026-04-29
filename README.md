@@ -25,15 +25,3 @@ python -m src.run_model_ceiling --num-samples 50 --models gpt-4o-mini gpt-4o
 ```
 
 This writes `results/model_ceiling.json`.
-
-## Mixed single-hop vs multi-hop comparison
-
-HotpotQA distractor is almost entirely multi-hop, so the single-hop bucket may be empty. To show a true comparison, run:
-
-```bash
-python -m src.run_experiment_mixed --num-squad 50 --num-hotpot 50
-```
-
-This writes:
-- `results/multihop_vs_singlehop_mixed.md`
-- `results/per_example_traces_mixed.json`

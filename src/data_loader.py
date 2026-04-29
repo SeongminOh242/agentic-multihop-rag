@@ -8,7 +8,7 @@ from .types import CorpusDocument, HotpotExample, SupportingFact
 
 def _load_dataset(
     dataset_name: str,
-    subset: str | None,
+    subset: str,
     split: str,
 ):
     try:
@@ -18,9 +18,7 @@ def _load_dataset(
             "datasets is required to load HotpotQA. Install requirements.txt first."
         ) from exc
 
-    if subset:
-        return load_dataset(dataset_name, subset, split=split)
-    return load_dataset(dataset_name, split=split)
+    return load_dataset(dataset_name, subset, split=split)
 
 
 def load_hotpotqa(
@@ -53,47 +51,6 @@ def load_hotpotqa(
         )
 
     return samples
-
-
-def load_squad(
-    split: str = "validation",
-    max_samples: int = 500,
-    dataset_name: str = "squad",
-) -> list[dict[str, Any]]:
-    """Load a single-hop QA dataset (SQuAD) in a minimal dict format."""
-
-    if max_samples <= 0:
-        raise ValueError("max_samples must be a positive integer.")
-
-    dataset = _load_dataset(dataset_name=dataset_name, subset="", split=split)
-    samples: list[dict[str, Any]] = []
-
-    for index, item in enumerate(dataset):
-        if index >= max_samples:
-            break
-        answers = item.get("answers") or {}
-        texts = answers.get("text") or []
-        answer = texts[0] if texts else ""
-        samples.append(
-            {
-                "question": item["question"],
-                "answer": answer,
-                "context_text": item["context"],
-                "id": item.get("id", str(index)),
-                "type": "singlehop",
-                "level": "",
-            }
-        )
-
-    return samples
-
-
-def build_corpus_squad(samples: Sequence[Mapping[str, Any]]) -> list[str]:
-    """Deduplicate SQuAD contexts into a corpus of retrievable passages."""
-    corpus: list[str] = []
-    for sample in samples:
-        corpus.append(str(sample["context_text"]))
-    return list(dict.fromkeys(corpus))
 
 
 def build_corpus(samples: Sequence[Mapping[str, Any]]) -> list[str]:
